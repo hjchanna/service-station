@@ -1,0 +1,91 @@
+<div class="container">
+    <div class="col-lg-10">
+        <div class="col-lg-4">
+            <div class="panel">
+                <div class="panel-heading">
+                    <label>Job Details</label>
+                </div>
+                <div class="panel-body">
+                    <form class="form-inline"> 
+                        <div class="input-group" id="default-text">
+                            <input class="form-control" type="text" name="product" list="productName" placeholder="Job No"/>
+                            <datalist id="productName">
+                                <option value="Pen">1</option>
+                                <option value="Pencil">2</option>
+                                <option value="Paper">3</option>
+                            </datalist>                       
+                        </div>
+                        <input id="default-text" class="form-control" type="date" name="date" value="" />
+                        <input id="default-text" class="form-control" type="time" name="date" value="" />
+                    </form>
+                </div>   
+
+            </div>
+        </div>
+        <div class="col-lg-8">
+            <div class="panel">
+                <div class="panel-heading">
+                    <label>Vehicle Details</label>
+                </div>
+                <form class="form-inline"> 
+                    <div class="panel-body">
+                        <input id="default-text2" class="form-control" type="text" name="date" value="" placeholder="vehicle No">
+                        <div class="input-group" id="default-text2">
+                            <input class="form-control" type="text" name="product" list="productName" placeholder="Type"/>
+                            <datalist id="productName">
+                                <option value="Pen">1</option>
+                                <option value="Pencil">2</option>
+                                <option value="Paper">3</option>
+                            </datalist>                       
+                        </div>
+                        <div class="input-group" id="default-text2">
+                            <input class="form-control" type="text" name="product" list="productName" placeholder="Make"/>
+                            <datalist id="productName">
+                                <option value="Pen">1</option>
+                                <option value="Pencil">2</option>
+                                <option value="Paper">3</option>
+                            </datalist>                       
+                        </div>
+                        <input id="default-text2" class="form-control" type="text" value="" placeholder="Days">
+                        <input id="default-text2" class="form-control" type="text" value="" placeholder="In Milage">
+                        <input id="default-text2" class="form-control" type="text" value="" placeholder="Next Service milage">
+                    </div>   
+                </form>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="panel">
+                <div class="panel-heading">
+                    <label>Customer Details</label>
+                    <div class="customer-radio">
+                        <label class="radio-inline"><input type="radio" name="customer-radio" checked="checked">New Customer</label>
+                        <label class="radio-inline"><input type="radio" name="customer-radio">Existing Customer</label>                          
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <form class="form-inline">   
+                        <input  id="customer-name-text" class="form-control" type="text" placeholder="Name">
+                        <input id="idNo-text" class="form-control" type="text" placeholder="NIC No">
+                        <input id="idNo-text" class="form-control" type="date" name="date" value="">
+                        <textarea id="text-area" class="form-control" rows="4" cols="20">
+                        </textarea>
+                        <input id="idNo-text" class="form-control" type="text" placeholder="Mobile No">
+                        <input id="idNo-text" class="form-control" type="text" placeholder="Telephone No">
+                        <input id="idNo-text" class="form-control" type="text" placeholder="Fax No">
+                        <input id="idNo-text" class="form-control" type="text" placeholder="E-mail">
+                        <label id="idNo-text">Free Offer Entitled <input type="checkbox" name="freeoffer" value="ON"></label>
+
+                    </form>
+                </div>   
+
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2">
+        <input id="btn" class="btn btn-success" type="submit" value="Save" ng-click="add()" />
+        <input id="btn" class="btn btn-info" type="button" value="New"/>
+        <input id="btn" class="btn btn-default" type="button" value="Clear"/>
+        <input id="btn" class="btn btn-danger" type="button" value="Delete"/>
+        <input id="btn" class="btn btn-warning" type="button" value="print"/>
+    </div>
+</div>

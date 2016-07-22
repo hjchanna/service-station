@@ -27,6 +27,11 @@
                     controller: "testController",
                     templateUrl: "app/test/test.html"
                 })
+                .when("/job-card", {
+                    controller: "jobCardController",
+                    templateUrl: "app/transaction/job-card/job-card.html"
+
+                })
                 .otherwise({redirectTo: "/"});
 
     });
