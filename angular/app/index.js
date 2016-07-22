@@ -5,7 +5,10 @@
                 "ngRoute",
                 //application custom module import
                 "home",
-                "myTest"
+                "myTest",
+                //transactions
+                "jobCardModule"
+                
             ]);
 
     //controller

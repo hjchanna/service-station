@@ -305,18 +305,17 @@
                     <ul class="sidebar-menu">
                         <li class="header">MAIN NAVIGATION</li>
                         <li class="active treeview">
-                            <a href="#">
-                                <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
+                            <a href="">
+                                <i class="fa fa-dashboard"></i> <span>Transactions</span> <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-                                <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+                                <li><a href="#/job-card"><i class="fa fa-circle-o"></i> Job Card</a></li>
                             </ul>
+                        </li>
+
+                        <li class="treeview">
                             <a href="#/test">
                                 Test
-                            </a>
-                            <a href="#/job-card">
-                                job card
                             </a>
                         </li>
                     </ul>
@@ -330,13 +329,8 @@
             </div>
             <!-- /.content-wrapper -->
 
-            <footer class="main-footer">
-                <div class="pull-right hidden-xs">
-                    <b>Version</b> 2.3.0
-                </div>
-                <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
-            </footer>
-        </div><!-- ./wrapper -->
+        </div>
+        <!-- ./wrapper -->
 
         <!-- jQuery 2.1.4 -->
         <script src="resources/plugins/jquery/jQuery-2.1.4.min.js"></script>
@@ -344,7 +338,7 @@
         <script src="resources/plugins/jquery-ui/jquery-ui.min.js"></script>
         <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
         <script>
-                                                        $.widget.bridge('uibutton', $.ui.button);
+            $.widget.bridge('uibutton', $.ui.button);
         </script>
         <!-- Bootstrap 3.3.5 -->
         <script src="resources/plugins/bootstrap/js/bootstrap.min.js"></script>
@@ -356,10 +350,13 @@
         <script src="resources/plugins/angular/angular.min.js"></script>
         <script src="resources/plugins/angular/angular-route.min.js"></script>
         <script src="resources/plugins/angular/angular-animate.min.js"></script>
+        <script src="resources/plugins/angular/ui-bootstrap.min.js"></script>
         <!--Angular Modules-->
         <script src="app/index.js"></script>
         <script src="app/test/test.js"></script>
         <script src="app/home/home.js"></script>
+
+        <script src="app/transaction/job-card/job-card.js"></script>
 
 
     </body>
