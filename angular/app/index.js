@@ -7,8 +7,10 @@
                 "home",
                 "myTest",
                 //transactions
-                "jobCardModule"
-                
+                "jobCardModule",
+                //master data
+                "productModule",
+                "customerModule"
             ]);
 
     //controller
@@ -35,7 +37,14 @@
                     templateUrl: "app/transaction/job-card/job-card.html"
 
                 })
+                .when("/product", {
+                    controller: "productController",
+                    templateUrl: "app/master-data/product/product.html"
+                })
+                .when("/customer", {
+                    controller: "customerController",
+                    templateUrl: "app/master-data/customer/customer.html"
+                })
                 .otherwise({redirectTo: "/"});
-
     });
 }());
