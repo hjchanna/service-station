@@ -100,7 +100,7 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row">    
         <div class="col-sm-12">
             <div class="box box-default">
                 <div class="box-header">
@@ -113,13 +113,18 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-4" for="name">NAME:</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="name" ng-model="job.customer.name" uib-typeahead="customer.name for customer in getCustomers($viewValue) | filter:$viewValue | limitTo:8" typeahead-on-select="setCustomer($item)" ng-disabled="mode === 'IDEAL'">
+                                    <div class="input-group">                                  
+                                        <input type="text" class="form-control" id="name" ng-model="job.customer.name" uib-typeahead="customer.name for customer in getCustomers($viewValue) | filter:$viewValue | limitTo:8" typeahead-on-select="setCustomer($item)" ng-disabled="mode === 'IDEAL'">                            
+                                        <div class="btn btn-default input-group-addon" data-toggle="modal" data-target="#customerSearchModel">
+                                            <span class="fa fa-search"></span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-4" for="address">ADDRESS:</label>
                                 <div class="col-sm-8">
-                                    <textarea class="form-control" id="address" ng-model="job.customer.address" ng-disabled="mode === 'IDEAL'"></textarea>
+                                    <textarea class="form-control" id="address" ng-model="job.customer.address" ng-disabled="mode === 'IDEAL'" style="height: 82px"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -190,6 +195,55 @@
                     <button class="btn btn-flat btn-default" ng-hide="mode === 'IDEAL'" ng-click="doClear();"><i class="fa fa-retweet"></i> CLEAR</button>
 
                     <button class="btn btn-flat btn-default" ng-show="mode === 'IDEAL'" ng-click="doPrint();"><i class="fa fa-print"></i> PRINT</button>
+                </div>
+
+
+
+                <!-- Modal -->
+                <div class="modal fade" id="customerSearchModel" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Advance Search</h4>
+                            </div>
+
+                            <div class="modal-body no-padding">
+                                <table class="table table-hover table-fixed">
+                                    <thead class="btn-default">
+                                        <tr>
+                                            <th class="col-sm-6">
+                                                CUSTOMER NAME
+                                                <input id="othertext1" placeholder="Name" class="form-control" ng-model="search.customer.name" type="text">
+                                            </th>
+
+                                            <th class="col-sm-3">
+                                                NIC NO.
+                                                <input id="othertext1" placeholder="NIC" class="form-control" ng-model="search.customer.nic" type="text">
+                                            </th>
+
+                                            <th class="col-sm-3">
+                                                TELEPHONE NO.
+                                                <input id="othertext1" placeholder="Tel No" class="form-control" ng-model="search.customer.mobile" type="text">
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="customer in getCustomers(null)| filter:search.customer" ng-click="doSelectCustomer(customer)" data-dismiss="modal">
+                                            <td class="col-sm-6">{{customer.name}}</td>
+                                            <td class="col-sm-3">{{customer.nic}}</td>
+                                            <td class="col-sm-3">{{customer.mobile}}</td>
+                                        </tr>    
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

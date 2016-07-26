@@ -5,6 +5,9 @@
         //variables
         $scope.mode = "IDEAL";//IDEAL, NEW, EDIT
         $scope.job = "";
+        
+        //temp
+        $scope.customers = null;
 
         //actions
         $scope.doNew = function () {
@@ -42,6 +45,11 @@
 
         $scope.doClear = function () {
             $scope.job = null;
+        };
+        
+        $scope.doSelectCustomer = function(customer){
+            $scope.job.customer = customer;
+            console.log("customer selected");
         };
 
         //other functions
@@ -160,7 +168,8 @@
         };
 
         $scope.getCustomers = function (name) {
-            return [{
+            if(!$scope.customers){
+                $scope.customers = [{
                     "indexNo": "1",
                     "name": "Channa Mohan",
                     "address": "#87,\nOld Galle Rd.,\nWalana,\nPanadura.",
@@ -171,6 +180,9 @@
                     "telephone": "0386692254",
                     "email": "hjchanna@gmail.com"
                 }];
+            }
+            
+            return $scope.customers;
         };
     };
     jobCardModule.controller("jobCardController", jobCardController);
