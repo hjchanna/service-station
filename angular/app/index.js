@@ -9,7 +9,8 @@
                 //transactions
                 "jobCardModule",
                 "invoiceModule",
-                "grnModule",
+//                "grnModule",
+                "customerPaymentModule",
                 //master data
                 "productModule",
                 "customerModule",
@@ -47,6 +48,11 @@
                  .when("/grn", {
                     controller: "grnController",
                     templateUrl: "app/transaction/grn/grn.html"
+                })
+                
+                 .when("/customerPayment", {
+                    controller: "customerPaymentController",
+                    templateUrl: "app/transaction/customer-payment/customer-payment.html"
                 })
                 
                 .when("/product", {
