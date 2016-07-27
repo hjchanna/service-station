@@ -37,6 +37,11 @@
                     templateUrl: "app/transaction/job-card/job-card.html"
 
                 })
+                .when("/invoice", {
+                    controller: "invoiceController",
+                    templateUrl: "app/transaction/invoice/invoice.html"
+
+                })
                 .when("/product", {
                     controller: "productController",
                     templateUrl: "app/master-data/product/product.html"
@@ -45,6 +50,7 @@
                     controller: "customerController",
                     templateUrl: "app/master-data/customer/customer.html"
                 })
+                
                 .otherwise({redirectTo: "/"});
     });
 }());
