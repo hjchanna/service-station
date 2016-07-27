@@ -12,93 +12,99 @@
 <section class="content">
     <div class="row">
 
-        <div class="col-sm-12">
+        <div class="col-sm-6">
             <div class="box box-default">
                 <div class="box-header">
                     <i class="fa fa-file-text"></i> <h4 class="box-title">PRODUCT DETAIL</h4>
                 </div>
                 <div class="box-body">
                     <div class="form-horizontal">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label class="control-label col-sm-4" for="pro-no">PRO NO.:</label>
-                                <div class="col-sm-8">
-                                    <input type="text" name="" value="" id="pro-no" class="form-control" ng-model="product.proNo" />
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label col-sm-4" for="brand">BRAND:</label>
-                                <div class="col-sm-8"> 
-                                    <input type="text" class="form-control" id="brand" ng-change="setDescription();"  typeahead-on-select="setDescription()" ng-model="product.brandName" uib-typeahead="brandName for brandName in getBrand($viewValue) | filter:$viewValue | limitTo:8" >                                
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label col-sm-4" for="category">CATEGORY:</label>
-                                <div class="col-sm-8"> 
-                                    <input type="text" class="form-control" id="category" ng-change="setDescription();" typeahead-on-select="setDescription()" ng-model="product.categoryName" uib-typeahead="categoryName for categoryName in getCategory($viewValue) | filter:$viewValue | limitTo:8">                                
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label col-sm-4" for="model-no">MODEL NO.:</label>
-                                <div class="col-sm-8"> 
-                                    <input type="text" class="form-control" id="model-no" ng-change="setDescription();" typeahead-on-select="setDescription()" ng-model="product.modelNo" uib-typeahead="modelno for modelno in getModelNo($viewValue) | filter:$viewValue | limitTo:8">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label class="control-label col-sm-4" for="description">DESCRIPTION:</label>
-                                <div class="col-sm-8"> 
-                                    <input type="text" class="form-control"  id="description" ng-model="product.description" ng-bind="product.brandName" value="product.brandName">                                
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-4" for="print-desc">PRINT DESC.:</label>
-                                <div class="col-sm-8"> 
-                                    <input type="text" class="form-control" id="print-desc" ng-model="product.printdescription">                                
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-4" for="re/order-qty">RE/ORDER QTY:</label>
-                                <div class="col-sm-8"> 
-                                    <input type="text" class="form-control" id="re/order-qty" ng-model="product.reorderqty">                                
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-4" ></label>
-                                <div class="col-sm-8"> 
-
-                                    <div class="col-sm-4">
-                                        <div class="radio">
-                                            <label>
-                                                <input type="radio" name="group" checked="checked">
-                                                STOCK
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="radio">
-                                            <label>
-                                                <input type="radio" name="group">
-                                                N.STOCK
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="radio">
-                                            <label>
-                                                <input type="radio" name="group">
-                                                SERVICE
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="pro-no">PRO NO.:</label>
+                            <div class="col-sm-8">
+                                <input type="text" name="" value="" id="pro-no" class="form-control" ng-model="product.proNo" />
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="brand">BRAND:</label>
+                            <div class="col-sm-8"> 
+                                <input type="text" class="form-control" id="brand" ng-change="setDescription();"  typeahead-on-select="setDescription()" ng-model="product.brandName" uib-typeahead="brandName for brandName in getBrand($viewValue) | filter:$viewValue | limitTo:8" >                                
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="category">CATEGORY:</label>
+                            <div class="col-sm-8"> 
+                                <input type="text" class="form-control" id="category" ng-change="setDescription();" typeahead-on-select="setDescription()" ng-model="product.categoryName" uib-typeahead="categoryName for categoryName in getCategory($viewValue) | filter:$viewValue | limitTo:8">                                
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="model-no">MODEL NO.:</label>
+                            <div class="col-sm-8"> 
+                                <input type="text" class="form-control" id="model-no" ng-change="setDescription();" typeahead-on-select="setDescription()" ng-model="product.modelNo" uib-typeahead="modelno for modelno in getModelNo($viewValue) | filter:$viewValue | limitTo:8">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="box box-default">
+                <div class="box-header">
+                    <i class="fa fa-file-text"></i> <h4 class="box-title">PRODUCT DETAIL</h4>
+                </div>
+                <div class="box-body">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="description">DESCRIPTION:</label>
+                            <div class="col-sm-8"> 
+                                <input type="text" class="form-control"  id="description" ng-model="product.description" ng-bind="product.brandName" value="product.brandName">                                
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="print-desc">PRINT DESC.:</label>
+                            <div class="col-sm-8"> 
+                                <input type="text" class="form-control" id="print-desc" ng-model="product.printdescription">                                
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="re/order-qty">RE/ORDER QTY:</label>
+                            <div class="col-sm-8"> 
+                                <input type="text" class="form-control" id="re/order-qty" ng-model="product.reorderqty">                                
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" ></label>
+                            <div class="col-sm-8"> 
+
+                                <div class="col-sm-4">
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="group" checked="checked">
+                                            STOCK
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="group">
+                                            N.STOCK
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="group">
+                                            SERVICE
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

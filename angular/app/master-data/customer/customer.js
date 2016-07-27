@@ -1,12 +1,54 @@
 (function () {
-    var customerModule = angular.module("customerModule", []);
+    var customerModule = angular.module("customerModule", ['ui-notification']);
 
-    var customerController = function ($scope) {
+    var customerController = function ($scope, Notification) {
+        $scope.mode = "IDEAL";
+
+        $scope.customer = "";
         $scope.customers = null;
 
+//       actions
+        $scope.doNew = function () {
+            $scope.doClear();
+
+            $scope.customer = {};
+            $scope.customer.indexNo = $scope.getNextCustomerNumber();
+
+            $scope.setMode('NEW');
+        };
+
+        $scope.doEdit = function () {
+            $scope.setMode('EDIT');
+        };
+
+        $scope.doDelete = function () {
+
+        };
+
+        $scope.doPrint = function () {
+
+        };
+
+        $scope.doSave = function () {
+            Notification.success('Success');
+        };
+
+        $scope.doDiscard = function () {
+            $scope.setMode('IDEAL');
+
+            $scope.doClear();
+        };
+
+        $scope.doClear = function () {
+            $scope.customer = null;
+        };
 
 
-//        Action
+//        other funtion
+        $scope.setMode = function (mode) {
+            $scope.mode = mode;
+        };
+
         $scope.saveCustomer = function () {
             if ($scope.customer.indexNo &&
                     $scope.customer.nic &&
@@ -23,10 +65,10 @@
                 };
                 angular.forEach($scope.customers, function (value, key) {
                     if (value.indexNo == $scope.customer.indexNo) {
-                    if (value.nic == $scope.customer.nic) {
-                        $scope.customers.splice(key, 1);
-                        
-                    }
+                        if (value.nic == $scope.customer.nic) {
+                            $scope.customers.splice(key, 1);
+
+                        }
                     }
                     ;
                 });
@@ -60,6 +102,10 @@
 
 
 //        $http
+        $scope.getNextCustomerNumber = function () {
+            return "1";
+        };
+
         $scope.getCustomers = function () {
             if (!$scope.customers) {
                 $scope.customers = [{
