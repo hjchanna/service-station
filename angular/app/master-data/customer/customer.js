@@ -7,6 +7,59 @@
 
 
 //        Action
+        $scope.saveCustomer = function () {
+            if ($scope.customer.indexNo &&
+                    $scope.customer.nic &&
+                    $scope.customer.city &&
+                    $scope.customer.mobile &&
+                    $scope.customer.name) {
+
+                $scope.customer = {
+                    "indexNo": $scope.customer.indexNo,
+                    "nic": $scope.customer.nic,
+                    "name": $scope.customer.name,
+                    "mobile": $scope.customer.mobile,
+                    "city": $scope.customer.city,
+                };
+                angular.forEach($scope.customers, function (value, key) {
+                    if (value.indexNo == $scope.customer.indexNo) {
+                    if (value.nic == $scope.customer.nic) {
+                        $scope.customers.splice(key, 1);
+                        
+                    }
+                    }
+                    ;
+                });
+                $scope.customers.push($scope.customer);
+
+                $scope.customer = "";
+            }
+
+        };
+        $scope.removeCustomer = function (customer) {
+            if (customer != -1) {
+                var res = confirm('Do you want to delete ?');
+                if (res) {
+                    $scope.customers.splice(customer, 1);
+                }
+            }
+        };
+        $scope.updateCustomer = function (customer) {
+            if (customer) {
+                $scope.customer.indexNo = customer.indexNo;
+                $scope.customer.nic = customer.nic;
+                $scope.customer.name = customer.name;
+                $scope.customer.mobile = customer.mobile;
+                $scope.customer.city = customer.city;
+            }
+            $scope.removeCustomer(customer);
+        };
+
+
+
+
+
+//        $http
         $scope.getCustomers = function () {
             if (!$scope.customers) {
                 $scope.customers = [{
@@ -31,9 +84,8 @@
 
             return $scope.customers;
         };
-        $scope.saveCustomer = function (){
-            
-        };
+
+
     };
     customerModule.controller("customerController", customerController);
 }());
