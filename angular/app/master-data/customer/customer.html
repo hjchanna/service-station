@@ -1,5 +1,5 @@
 <section class="content-header">
-    <h1>Product<small>manage product</small></h1>
+    <h1>CUSTOMER<small>manage customer</small></h1>
 
     <ol class="breadcrumb">
         <li>A</li>
@@ -8,181 +8,136 @@
     </ol>
 </section>
 
-
 <section class="content">
     <div class="row">
-        <div class="col-sm-4">
-
+        <div class="col-sm-12">
             <div class="box box-default">
                 <div class="box-header">
                     <i class="fa fa-file-text"></i> <h4 class="box-title">CUSTOMER DETAIL</h4>
                 </div>
                 <div class="box-body">
                     <div class="form-horizontal">
-                        <div class="form-group">
-                            <label class="control-label col-sm-4" for="pro-no">CUS NO.:</label>
-                            <div class="col-sm-8">
-                                <div class="input-group">
-                                    <input type="text" id="pro-no" class="form-control" ng-model="customer.indexNo" ng-disabled="mode !== 'IDEAL'">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default btn-flat" type="button"><i class="fa fa-search"></i></button>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label col-sm-4" for="model-no">NIC NO.:</label>
-                            <div class="col-sm-8"> 
-                                <input type="text" class="form-control"  id="model-no" ng-model="customer.nic" ng-disabled="mode !== 'IDEAL'">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label col-sm-4" for="name">NAME:</label>
-                            <div class="col-sm-8"> 
-                                <input type="text" class="form-control" id="name" ng-model="customer.name" ng-disabled="mode !== 'IDEAL'">                                
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-4" for="mobile">MOBILE:</label>
-                            <div class="col-sm-8"> 
-                                <input type="text" class="form-control" id="mobile" ng-model="customer.mobile" ng-disabled="mode === 'IDEAL'">                                
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-4" for="city">CITY:</label>
-                            <div class="col-sm-8"> 
-                                <input type="text" class="form-control" id="city" ng-model="customer.city" ng-disabled="mode === 'IDEAL'">                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-8">
-            <div class="box box-default">
-                <div class="box-header">
-                    <i class="fa fa-file-text"></i> <h4 class="box-title">CUSTOMER DETAIL</h4>
-                </div>
-                <div class="box-body">
-                    <div class="col-sm-6">
-
-                        <div class="form-horizontal">
-
+                        <div class="col-sm-4">
                             <div class="form-group">
-                                <label class="control-label col-sm-4" for="address">ADDRESS:</label>
-                                <div class="col-sm-8"> 
-                                    <textarea name="" rows="3" cols="20"  id="address" class="form-control" style="height: 84px;" ng-disabled="mode === 'IDEAL'">
-                                    </textarea>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-4" for="email">EMAIL:</label>
-                                <div class="col-sm-8"> 
-                                    <input type="email" class="form-control" id="email" ng-disabled="mode === 'IDEAL'">                                
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-4" for="credit">CDT LIMIT:</label>
-                                <div class="col-sm-8 no-padding"> 
-                                    <!--<label class="control-label col-sm-3" >AMOUNT</label>-->
-                                    <div class="col-sm-7 pull-left">
-                                        <input type="text" id="credit"  value="" placeholder="Amount" class="form-control" ng-disabled="mode === 'IDEAL'">
-                                    </div>
-                                    <!--<label class="control-label col-sm-3" >DAYS</label>-->
-                                    <div class="col-sm-5 pull-right">
-                                        <input type="text" name="" value=""  placeholder="Days" class="form-control" ng-disabled="mode === 'IDEAL'">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-4" for="black-list">BLK LIST:</label>
+                                <label class="control-label col-sm-4" for="pro-no">CUST NO.:</label>
                                 <div class="col-sm-8">
                                     <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <input type="checkbox" name="" id="black-list" value="ON" ng-model="customer.isBacklist" ng-disabled="mode === 'IDEAL'">
+                                        <input type="text" id="pro-no" class="form-control" ng-model="customer.indexNo" ng-disabled="mode !== 'IDEAL'">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default btn-flat" type="button" data-toggle="modal" data-target="#customerSearchModel"><i class="fa fa-search"></i></button>
                                         </span>
-                                        <input type="text" class="form-control"  ng-disabled="!customer.isBacklist" ng-disabled="mode === 'IDEAL'">
                                     </div>
                                 </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="model-no">NIC NO.:</label>
+                                <div class="col-sm-8"> 
+                                    <input type="text" class="form-control"  id="model-no" ng-model="customer.nic" ng-disabled="false">
+                                </div>
+                            </div>
 
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="name">CUST NAME:</label>
+                                <div class="col-sm-8"> 
+                                    <input type="text" class="form-control" id="name" ng-model="customer.name" ng-disabled="false">                                
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="mobile">MOBILE:</label>
+                                <div class="col-sm-8"> 
+                                    <input type="text" class="form-control" id="mobile" ng-model="customer.mobile" ng-disabled="mode === 'IDEAL'">                                
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="city">CITY:</label>
+                                <div class="col-sm-8"> 
+                                    <input type="text" class="form-control" id="city" ng-model="customer.city" ng-disabled="mode === 'IDEAL'">                                
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="form-horizontal">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label class="control-label col-sm-4" for="telephone">TELEPHONE:</label>
-                                <div class="col-sm-8"> 
-                                    <input type="tel" class="form-control" id="telephone" ng-disabled="mode === 'IDEAL'">                                
+                        <div class="col-sm-4">
+
+                            <div class="form-horizontal">
+
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4" for="address">ADDRESS:</label>
+                                    <div class="col-sm-8"> 
+                                        <textarea name="" rows="3" cols="20"  id="address" class="form-control" style="height: 84px;" ng-disabled="mode === 'IDEAL'">
+                                        </textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4" for="email">EMAIL:</label>
+                                    <div class="col-sm-8"> 
+                                        <input type="email" class="form-control" id="email" ng-disabled="mode === 'IDEAL'">                                
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4" for="credit">CDT LIMIT:</label>
+                                    <div class="col-sm-8 no-padding"> 
+                                        <!--<label class="control-label col-sm-3" >AMOUNT</label>-->
+                                        <div class="col-sm-6">
+                                            <input type="text" id="credit"  value="" placeholder="Amount" class="form-control" ng-disabled="mode === 'IDEAL'">
+                                        </div>
+                                        <!--<label class="control-label col-sm-3" >DAYS</label>-->
+                                        <div class="col-sm-6">
+                                            <input type="text" name="" value=""  placeholder="Days" class="form-control" ng-disabled="mode === 'IDEAL'">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4" for="black-list">BLK LIST:</label>
+                                    <div class="col-sm-8">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <input type="checkbox" name="" id="black-list" value="ON" ng-model="customer.isBacklist" ng-disabled="mode === 'IDEAL'">
+                                            </span>
+                                            <input type="text" class="form-control"  ng-disabled="!customer.isBacklist" ng-disabled="mode === 'IDEAL'">
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <div class="col-sm-offset-4 col-sm-8"> 
-                                    <input type="tel" class="form-control" ng-disabled="mode === 'IDEAL'" >                                
+                        </div>
+                        <div class="form-horizontal">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4" for="telephone">TELEPHONE:</label>
+                                    <div class="col-sm-8"> 
+                                        <input type="tel" class="form-control" id="telephone" ng-disabled="mode === 'IDEAL'">                                
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-offset-4 col-sm-8"> 
-                                    <input type="tel" class="form-control" ng-disabled="mode === 'IDEAL'" >                                
+                                <div class="form-group">
+                                    <div class="col-sm-offset-4 col-sm-8"> 
+                                        <input type="tel" class="form-control" ng-disabled="mode === 'IDEAL'" >                                
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-4" for="fax">FAX:</label>
-                                <div class="col-sm-8"> 
-                                    <input type="tel" class="form-control" id="fax" ng-disabled="mode === 'IDEAL'">  
+                                <div class="form-group">
+                                    <div class="col-sm-offset-4 col-sm-8"> 
+                                        <input type="tel" class="form-control" ng-disabled="mode === 'IDEAL'" >                                
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-4" ></label>
-                                <div class="col-sm-8"> 
-                                    <div class="checkbox">
-                                        <label for="cash-customer">
-                                            <input type="checkbox" id="cash-customer" value="ON"/>
-                                            Cash Customer
-                                        </label>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4" for="fax">FAX:</label>
+                                    <div class="col-sm-8"> 
+                                        <input type="tel" class="form-control" id="fax" ng-disabled="mode === 'IDEAL'">  
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4" ></label>
+                                    <div class="col-sm-8"> 
+                                        <div class="checkbox">
+                                            <label for="cash-customer">
+                                                <input type="checkbox" id="cash-customer" value="ON" ng-disabled="mode === 'IDEAL'"/>
+                                                Cash Customer
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row" >
-        <div class="col-xs-12">
-            <div class="box">
-                <div class="box-header">
-                    <i class="fa fa-list-ul"></i> <h4 class="box-title">CUSTOMER LIST </h4>   
-                </div><!-- /.box-header -->
-                <div class="box-body table-responsive no-padding">
-                    <table class="table table-hover">
-                        <tbody>
-                            <tr>
-                                <th>#</th>
-                                <th>NIC NO</th>
-                                <th>CUSTOMER NAME</th>
-                                <th>MOBILE</th>
-                                <th>CITY</th>
-                                <th>OPTIONS</th>
-                            </tr>
-                            <tr ng-repeat="customer in getCustomers()">
-                                <td ng-bind="customer.indexNo"></td>
-                                <td ng-bind="customer.nic"></td>
-                                <td ng-bind="customer.name"></td>
-                                <td ng-bind="customer.mobile"></td>
-                                <td ng-bind="customer.city"></td>
-                                <td>
-                                    <button class="btn btn-danger btn-flat btn-xs" ng-click="removeCustomer(customer)">REMOVE</button>
-                                    <button class="btn btn-warning btn-flat btn-xs" ng-click="updateCustomer(customer)">EDIT</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div><!-- /.box-body -->
                 <div class="box-footer">
                     <button class="btn btn-flat btn-primary" ng-show="mode === 'IDEAL'" ng-click="doNew();"><i class="fa fa-plus"></i> NEW</button>
                     <button class="btn btn-flat btn-default" ng-show="mode === 'IDEAL'" ng-click="doEdit();"><i class="fa fa-edit"></i> EDIT</button>
@@ -194,8 +149,100 @@
 
                     <button class="btn btn-flat btn-default" ng-show="mode === 'IDEAL'" ng-click="doPrint();"><i class="fa fa-print"></i> PRINT</button>
                 </div>
-            </div><!-- /.box -->
-        </div>
 
+                <!-- Modal -->
+                <div class="modal fade" id="customerSearchModel" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Advance Search</h4>
+                            </div>
+
+                            <div class="modal-body no-padding">
+                                <table class="table table-hover table-fixed">
+                                    <thead class="btn-default">
+                                        <tr>
+                                            <th class="col-sm-6">
+                                                CUSTOMER NAME
+                                                <input id="othertext1" placeholder="" class="form-control" ng-model="search.customer.name" type="text">
+                                            </th>
+
+                                            <th class="col-sm-3">
+                                                NIC NO.
+                                                <input id="othertext1" placeholder="" class="form-control" ng-model="search.customer.nic" type="number">
+                                            </th>
+
+                                            <th class="col-sm-3">
+                                                TELEPHONE NO.
+                                                <input id="othertext1" placeholder="" class="form-control" ng-model="search.customer.mobile" type="number">
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="customer in getCustomers(null)| filter:search.customer" ng-click="doSelectCustomer(customer)" data-dismiss="modal">
+                                            <td class="col-sm-6">{{customer.name}}</td>
+                                            <td class="col-sm-3">{{customer.nic}}</td>
+                                            <td class="col-sm-3">{{customer.mobile}}</td>
+                                        </tr>    
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <!--    <div class="row" >
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <i class="fa fa-list-ul"></i> <h4 class="box-title">CUSTOMER LIST </h4>   
+                    </div> /.box-header 
+                    <div class="box-body table-responsive no-padding">
+                        <table class="table table-hover">
+                            <tbody>
+                                <tr>
+                                    <th>#</th>
+                                    <th>NIC NO</th>
+                                    <th>CUSTOMER NAME</th>
+                                    <th>MOBILE</th>
+                                    <th>CITY</th>
+                                    <th>OPTIONS</th>
+                                </tr>
+                                <tr ng-repeat="customer in getCustomers()">
+                                    <td ng-bind="customer.indexNo"></td>
+                                    <td ng-bind="customer.nic"></td>
+                                    <td ng-bind="customer.name"></td>
+                                    <td ng-bind="customer.mobile"></td>
+                                    <td ng-bind="customer.city"></td>
+                                    <td>
+                                        <button class="btn btn-danger btn-flat btn-xs" ng-click="removeCustomer(customer)">REMOVE</button>
+                                        <button class="btn btn-warning btn-flat btn-xs" ng-click="updateCustomer(customer)">EDIT</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div> /.box-body 
+                    <div class="box-footer">
+                        <button class="btn btn-flat btn-primary" ng-show="mode === 'IDEAL'" ng-click="doNew();"><i class="fa fa-plus"></i> NEW</button>
+                        <button class="btn btn-flat btn-default" ng-show="mode === 'IDEAL'" ng-click="doEdit();"><i class="fa fa-edit"></i> EDIT</button>
+                        <button class="btn btn-flat btn-default" ng-show="mode === 'IDEAL'" ng-click="doDelete();"><i class="fa fa-trash"></i> DELETE</button>
+    
+                        <button class="btn btn-flat btn-primary" ng-hide="mode === 'IDEAL'" ng-click="doSave();"><i class="fa fa-save"></i> SAVE</button>
+                        <button class="btn btn-flat btn-default" ng-hide="mode === 'IDEAL'" ng-click="doDiscard();"><i class="fa fa-close"></i> DISCARD</button>
+                        <button class="btn btn-flat btn-default" ng-hide="mode === 'IDEAL'" ng-click="doClear();"><i class="fa fa-retweet"></i> CLEAR</button>
+    
+                        <button class="btn btn-flat btn-default" ng-show="mode === 'IDEAL'" ng-click="doPrint();"><i class="fa fa-print"></i> PRINT</button>
+                    </div>
+                </div> /.box 
+            </div>
+    
+        </div>-->
 </section>
