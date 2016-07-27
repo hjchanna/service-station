@@ -16,7 +16,7 @@
         $scope.doNew = function () {
             $scope.doClear();
 
-            $scope.product.productNo = $scope.getNextJobNumber();
+            $scope.product.productNo = $scope.getNextProductNumber();
 
             $scope.setMode('NEW');
         };
@@ -119,6 +119,9 @@
         };
 
         //$http
+        $scope.getNextProductNumber = function (){
+            return 1;  
+        };
         $scope.getCategories = function (category) {
             return ["category 1", "category 2", "category 3", "category 4"];
         };
