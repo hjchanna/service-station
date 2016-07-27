@@ -22,7 +22,7 @@
                                 <label class="control-label col-sm-4" for="pro-no">CUST NO.:</label>
                                 <div class="col-sm-8">
                                     <div class="input-group">
-                                        <input type="text" id="pro-no" class="form-control" ng-model="customer.indexNo" ng-disabled="mode !== 'IDEAL'">
+                                        <input type="text" id="pro-no" class="form-control" ng-model="customer.indexNo" ng-disabled="mode !== 'IDEAL'" uib-typeahead="customer.indexNo for customer in getCustomers($viewValue) | filter:$viewValue" typeahead-on-select="setCustomer($item)">
                                         <span class="input-group-btn">
                                             <button class="btn btn-default btn-flat" type="button" data-toggle="modal" data-target="#customerSearchModel"><i class="fa fa-search"></i></button>
                                         </span>
