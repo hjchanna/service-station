@@ -20,30 +20,30 @@
                 <div class="box-body">
                     <div class="form-horizontal">
                         <div class="form-group">
-                            <label class="control-label col-sm-4" for="pro-no">PRO NO.:</label>
-                            <div class="col-sm-8">
-                                <input type="text" name="" value="" id="pro-no" class="form-control" ng-model="product.proNo" />
+                            <label class="control-label col-sm-3" for="productNo">PRODUCT NO.:</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="productNo" ng-model="product.productNo" />
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label col-sm-4" for="brand">BRAND:</label>
-                            <div class="col-sm-8"> 
-                                <input type="text" class="form-control" id="brand" ng-change="setDescription();"  typeahead-on-select="setDescription()" ng-model="product.brandName" uib-typeahead="brandName for brandName in getBrand($viewValue) | filter:$viewValue | limitTo:8" >                                
+                            <label class="control-label col-sm-3" for="brand">BRAND:</label>
+                            <div class="col-sm-9"> 
+                                <input type="text" class="form-control" id="brand" ng-change="updateProductDescription();"  typeahead-on-select="updateProductDescription()" ng-model="product.brand" uib-typeahead="brandName for brandName in getBrands($viewValue) | filter:$viewValue | limitTo:8" >                                
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label col-sm-4" for="category">CATEGORY:</label>
-                            <div class="col-sm-8"> 
-                                <input type="text" class="form-control" id="category" ng-change="setDescription();" typeahead-on-select="setDescription()" ng-model="product.categoryName" uib-typeahead="categoryName for categoryName in getCategory($viewValue) | filter:$viewValue | limitTo:8">                                
+                            <label class="control-label col-sm-3" for="category">CATEGORY:</label>
+                            <div class="col-sm-9"> 
+                                <input type="text" class="form-control" id="category" ng-change="updateProductDescription();" typeahead-on-select="updateProductDescription()" ng-model="product.category" uib-typeahead="categoryName for categoryName in getCategories($viewValue) | filter:$viewValue | limitTo:8">                                
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label col-sm-4" for="model-no">MODEL NO.:</label>
-                            <div class="col-sm-8"> 
-                                <input type="text" class="form-control" id="model-no" ng-change="setDescription();" typeahead-on-select="setDescription()" ng-model="product.modelNo" uib-typeahead="modelno for modelno in getModelNo($viewValue) | filter:$viewValue | limitTo:8">
+                            <label class="control-label col-sm-3" for="model">MODEL:</label>
+                            <div class="col-sm-9"> 
+                                <input type="text" class="form-control" id="model" ng-change="updateProductDescription();" typeahead-on-select="updateProductDescription()" ng-model="product.model" uib-typeahead="modelno for modelno in getModels($viewValue) | filter:$viewValue | limitTo:8">
                             </div>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
             </div>
         </div>
         <div class="col-sm-6">
-            <div class="box box-default">
+            <div class="box box-default"  style="height: 260px;">
                 <div class="box-header">
                     <i class="fa fa-file-text"></i> <h4 class="box-title">PRODUCT DETAIL</h4>
                 </div>
@@ -60,19 +60,19 @@
                         <div class="form-group">
                             <label class="control-label col-sm-4" for="description">DESCRIPTION:</label>
                             <div class="col-sm-8"> 
-                                <input type="text" class="form-control"  id="description" ng-model="product.description" ng-bind="product.brandName" value="product.brandName">                                
+                                <input type="text" class="form-control"  id="description" ng-model="product.description" value="product.brandName">                                
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-4" for="print-desc">PRINT DESC.:</label>
+                            <label class="control-label col-sm-4" for="print-desc">PRINT DESCRIPTION:</label>
                             <div class="col-sm-8"> 
-                                <input type="text" class="form-control" id="print-desc" ng-model="product.printdescription">                                
+                                <input type="text" class="form-control" id="print-desc" ng-model="product.printDescription">                                
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-4" for="re/order-qty">RE/ORDER QTY:</label>
+                            <label class="control-label col-sm-4" for="reorder-qty">RE-ORDER QTY:</label>
                             <div class="col-sm-8"> 
-                                <input type="text" class="form-control" id="re/order-qty" ng-model="product.reorderqty">                                
+                                <input type="number" class="form-control" id="reorder-qty" ng-model="product.reOrderQuantity">                                
                             </div>
                         </div>
                         <div class="form-group">
@@ -82,7 +82,7 @@
                                 <div class="col-sm-4">
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" name="group" checked="checked">
+                                            <input type="radio" name="stockType" ng-value="STOCK" ng-model="product.stockType" checked>
                                             STOCK
                                         </label>
                                     </div>
@@ -90,7 +90,7 @@
                                 <div class="col-sm-4">
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" name="group">
+                                            <input type="radio" name="stockType" ng-value="NON-STOCK" ng-model="product.stockType">
                                             N.STOCK
                                         </label>
                                     </div>
@@ -98,7 +98,7 @@
                                 <div class="col-sm-4">
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" name="group">
+                                            <input type="radio" name="stockType" ng-value="SERVICE" ng-model="product.stockType">
                                             SERVICE
                                         </label>
                                     </div>
@@ -114,49 +114,50 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <i class="fa fa-list-ul"></i> <h4 class="box-title">UNIT LIST</h4>   
+                    <i class="fa fa-list-ul"></i> <h4 class="box-title">PRODUCT UNITS</h4>   
                 </div><!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">
                     <table class="table table-hover">
                         <tbody>
                             <tr>
-                                <th>#</th>
-                                <th class="col-sm-2">UNIT PRICE
-                                    <input type="text" name="" ng-model="unit.unitPrice" value="" class="form-control "/>
+                                <th class="text-center">#</th>
+                                <th class="col-sm-4">UNIT NAME
+                                    <input type="text" name="" ng-model="tempUnit.unitName" value="" class="form-control "/>
                                 </th>
-                                <th class="col-sm-2">COST
-                                    <input type="text" name="" ng-model="unit.cost" value="" class="form-control"/>
+                                <th class="col-sm-2">COST PRICE
+                                    <input type="number" name="" ng-model="tempUnit.costPrice" value="" class="form-control"/>
                                 </th>
-                                <th class="col-sm-2">SELLING PRICE
-                                    <input type="text" name="" value="" ng-model="unit.sellingPrice" class="form-control"/>
+                                <th class="col-sm-2">SALES PRICE
+                                    <input type="number" name="" value="" ng-model="tempUnit.salesPrice" class="form-control"/>
                                 </th>
-                                <th class="col-sm-2">QTY
-                                    <input type="text" name="" value="" ng-model="unit.qty"  ng-keypress="checkEnterPressed($event)" class="form-control"/>
+                                <th class="col-sm-2">QUANTITY
+                                    <input type="number" name="" value="" ng-model="tempUnit.quantity"  ng-keypress="AddUnitKeyEvent($event)" class="form-control"/>
                                 </th>
-                                <th>OPTIONS<br>
-                                    <button class="btn btn-primary  btn-flat" ng-click="addUnit()"><i class="fa fa-plus"></i> ADD</button>
+                                <th>
+                                    <br>
+                                    <button class="btn btn-primary  btn-flat" ng-click="doAddUnit()" style="width: 92px;"><i class="fa fa-plus"></i> ADD</button>
                                 </th>
                             </tr>
-                            <tr ng-repeat="unit in getUnits()">
-                                <td >{{ $index + 1}}</td>
-                                <td ng-bind="unit.unitPrice"></td>
-                                <td ng-bind="unit.cost"></td>
-                                <td ng-bind="unit.sellingPrice"></td>
-                                <td ng-bind="unit.qty"></td>
+                            <tr ng-repeat="unit in product.units">
+                                <td class="text-center">{{ $index + 1}}</td>
+                                <td class=""           ng-bind="unit.unitName"></td>
+                                <td class="text-right" ng-bind="unit.costPrice"></td>
+                                <td class="text-right" ng-bind="unit.salesPrice"></td>
+                                <td class="text-right" ng-bind="unit.quantity"></td>
                                 <td>
-                                    <button class="btn btn-danger btn-flat btn-xs" ng-click="remove($index)">REMOVE</button>
-                                    <button class="btn btn-warning btn-flat btn-xs" ng-click="update(unit, $index)">EDIT</button>
+                                    <button class="btn btn-warning btn-flat btn-xs" ng-click="doEditUnit(unit)">EDIT</button>
+                                    <button class="btn btn-danger btn-flat btn-xs" ng-click="doRemoveUnit(unit)">REMOVE</button>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </div><!-- /.box-body -->
                 <div class="box-footer">
-                    <button class="btn btn-flat btn-primary" ng-show="mode === 'IDEAL'" ng-click="showSave();"><i class="fa fa-plus"></i> NEW</button>
+                    <button class="btn btn-flat btn-primary" ng-show="mode === 'IDEAL'" ng-click="doNew();"><i class="fa fa-plus"></i> NEW</button>
                     <button class="btn btn-flat btn-default" ng-show="mode === 'IDEAL'" ng-click="doEdit();"><i class="fa fa-edit"></i> EDIT</button>
                     <button class="btn btn-flat btn-default" ng-show="mode === 'IDEAL'" ng-click="doDelete();"><i class="fa fa-trash"></i> DELETE</button>
 
-                    <button class="btn btn-flat btn-primary" ng-hide="mode === 'IDEAL'" ng-click="showNew();"><i class="fa fa-save"></i> SAVE</button>
+                    <button class="btn btn-flat btn-primary" ng-hide="mode === 'IDEAL'" ng-click="doSave();"><i class="fa fa-save"></i> SAVE</button>
                     <button class="btn btn-flat btn-default" ng-hide="mode === 'IDEAL'" ng-click="doDiscard();"><i class="fa fa-close"></i> DISCARD</button>
                     <button class="btn btn-flat btn-default" ng-hide="mode === 'IDEAL'" ng-click="doClear();"><i class="fa fa-retweet"></i> CLEAR</button>
 
