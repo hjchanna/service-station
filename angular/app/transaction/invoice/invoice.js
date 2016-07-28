@@ -1,10 +1,16 @@
 (function () {
     var invoiceModule = angular.module("invoiceModule", ['ui.bootstrap', 'ui-notification']);
+    invoiceModule.config(function (NotificationProvider) {
+        NotificationProvider.setOptions({
+            startTop: 54
+        });
+    });
+
 
     var invoiceController = function ($scope, Notification) {
         $scope.mode = "IDEAL";//IDEAL, NEW, EDIT
         $scope.invoice = "";
-        $scope.ProductList = [];
+        $scope.tempProduct = {};
 
 //        action
         $scope.doNew = function () {
@@ -48,41 +54,48 @@
         };
 
         $scope.setProducts = function (product) {
-            $scope.invoice.product = product;
+            $scope.tempProduct = product;
 
         };
 
         $scope.setModels = function (model) {
-            $scope.invoice.product = model;
+            $scope.tempProduct = model;
 
         };
 
-        $scope.add = function () {
-            var data = {};
-            data.productNo = $scope.invoice.product.productNo;
-            data.modelNo = $scope.invoice.product.modelNo;
-            data.description = $scope.invoice.product.description;
-            data.unit = $scope.invoice.product.unit;
-            data.unitPrice = $scope.invoice.product.unitPrice;
-            data.recQty = $scope.invoice.product.recQty;
+        $scope.doAdd = function () {
+            if ($scope.tempProduct.productNo
+                    && $scope.tempProduct.modelNo
+                    && $scope.tempProduct.description
+                    && $scope.tempProduct.unit
+                    && $scope.tempProduct.unitPrice
+                    && $scope.tempProduct.recQty
+                    ) {
 
-            $scope.ProductList.push(data);
+                if (!$scope.invoice.products) {
+                    $scope.invoice.products = [];
+                }
+
+                $scope.invoice.products.push($scope.tempProduct);
+                $scope.tempProduct = {};
+
+            }
 
         };
         $scope.checkEnter = function ($event) {
             var keyCode = $event.which || $event.keyCode;
             if (keyCode == 13) {
-                $scope.add();
+                $scope.doAdd();
             }
-        }
-
-//        $http
-        $scope.getInvoiceNo = function (indexNo) {
-            return ["cd1111", "ds2222", "ew3333", "ed4444"];
         };
 
+//        $http
         $scope.getNextInvoiceNumber = function () {
             return "1";
+        };
+
+        $scope.getInvoiceNo = function (indexNo) {
+            return ["cd1111", "ds2222", "ew3333", "ed4444"];
         };
 
         $scope.getCustomers = function (customerName) {
@@ -98,7 +111,8 @@
                     "description": "oil fiter",
                     "unit": "L",
                     "unitPrice": "200",
-                    "recQty": "10"
+                    "recQty": "10",
+                    "value": "123"
                 },
                 {
                     "indexNo": "1",
@@ -108,6 +122,7 @@
                     "unit": "KG",
                     "unitPrice": "300",
                     "recQty": "20",
+                    "value": "123"
                 }
             ];
             return products;
