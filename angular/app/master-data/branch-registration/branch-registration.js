@@ -1,22 +1,19 @@
 (function () {
-    var customerPaymentModule = angular.module("customerPaymentModule", ['ui.bootstrap', 'ui-notification']);
-    customerPaymentModule.config(function (NotificationProvider) {
+    var branchRegistrationModule = angular.module("branchRegistrationModule", ['ui.bootstrap', 'ui-notification']);
+    branchRegistrationModule.config(function (NotificationProvider) {
         NotificationProvider.setOptions({
             startTop: 54
         });
     });
 
 
-    var customerPaymentController = function ($scope, Notification) {
+    var branchRegistrationController= function ($scope, Notification) {
+        //variables
         $scope.mode = "IDEAL";//IDEAL, NEW, EDIT
-        $scope.customerPayment ={};
         
         //actions
         $scope.doNew = function () {
             $scope.doClear();
-
-            $scope.customerPayment.indexNo = $scope.getNextCustomerPaymentNumber();
-            $scope.customerPayment.date = new Date();
 
             $scope.setMode('NEW');
         };
@@ -44,23 +41,14 @@
         };
 
         $scope.doClear = function () {
-            $scope.customerPayment = {};
-        };
-        
-        $scope.doSelectPayment = function(payment){
-            $scope.customerPayment.amount=payment;
         };
 
         //other functions
         $scope.setMode = function (mode) {
             $scope.mode = mode;
         };
-
-        $scope.getNextCustomerPaymentNumber = function () {
-            return "1";
-        };
+        
     };
-    customerPaymentModule.controller("customerPaymentController", customerPaymentController);
+    branchRegistrationModule.controller("branchRegistrationController", branchRegistrationController);
 
 }());
-    
