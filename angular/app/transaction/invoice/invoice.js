@@ -2,7 +2,7 @@
     var invoiceModule = angular.module("invoiceModule", ['ui.bootstrap', 'ui-notification']);
 
     var invoiceController = function ($scope, Notification) {
-        $scope.mode = "IDEAL";
+        $scope.mode = "IDEAL";//IDEAL, NEW, EDIT
         $scope.invoice = "";
         $scope.ProductList = [];
 
@@ -13,6 +13,8 @@
             $scope.invoice = {};
             $scope.invoice.invoiceNo = $scope.getNextInvoiceNumber();
             $scope.invoice.date = new Date();
+
+            $scope.setMode('NEW');
         };
         $scope.doEdit = function () {
             $scope.setMode('EDIT');
@@ -37,7 +39,7 @@
         };
 
         $scope.doClear = function () {
-            $scope.invoice = null;
+            $scope.job = null;
         };
 
 //        other funtion
