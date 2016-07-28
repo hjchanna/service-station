@@ -9,7 +9,7 @@
                 //transactions
                 "jobCardModule",
                 "invoiceModule",
-//                "grnModule",
+                "grnModule",
                 "customerPaymentModule",
                 //master data
                 "productModule",
