@@ -1,0 +1,128 @@
+<section class="content-header">
+    <h1>BRANCH REGISTRATION<small>register your branch</small></h1>
+
+    <ol class="breadcrumb">
+        <li>A</li>
+        <li>B</li>
+        <li>C</li>
+    </ol>
+</section>
+
+
+<section class="content">
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="box box-default">
+                <div class="box-header">
+                    <i class="fa fa-file-text"></i> <h4 class="box-title">BRANCH DETAILS</h4>
+                </div>
+                <div class="box-body">
+                    <div class="form-horizontal">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="branchName">BANH NAM:</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="branchName">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="companyName">CMPN NAM:</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="companyName">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="address">ADDRESS:</label>
+                                <div class="col-sm-8">
+                                    <textarea name="" rows="4" cols="20" class="form-control" id="address" style="height: 83px">
+                                    </textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="code">BNCH CODE:</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="code">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="companyName">COMP NAM:</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="companyName">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="webAddress">WEB ADRS:</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="webAddress">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="telephone1">TELEPHONE:</label>
+                                <div class="col-sm-8">
+                                    <input type="number" class="form-control" id="telephone1">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="telephone2"></label>
+                                <div class="col-sm-8">
+                                    <input type="number" class="form-control" id="telephone2">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="telephone2"></label>
+                                <div class="col-sm-8">
+                                    <input type="number" class="form-control" id="telephone2">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <button class="btn btn-flat btn-primary" ng-show="mode === 'IDEAL'" ng-click="doNew();"><i class="fa fa-plus"></i> NEW</button>
+                    <button class="btn btn-flat btn-default" ng-show="mode === 'IDEAL'" ng-click="doEdit();"><i class="fa fa-edit"></i> EDIT</button>
+                    <button class="btn btn-flat btn-default" ng-show="mode === 'IDEAL'" ng-click="doDelete();"><i class="fa fa-trash"></i> DELETE</button>
+
+                    <button class="btn btn-flat btn-primary" ng-hide="mode === 'IDEAL'" ng-click="doSave();"><i class="fa fa-save"></i> SAVE</button>
+                    <button class="btn btn-flat btn-default" ng-hide="mode === 'IDEAL'" ng-click="doDiscard();"><i class="fa fa-close"></i> DISCARD</button>
+                    <button class="btn btn-flat btn-default" ng-hide="mode === 'IDEAL'" ng-click="doClear();"><i class="fa fa-retweet"></i> CLEAR</button>
+
+                    <button class="btn btn-flat btn-default" ng-show="mode === 'IDEAL'" ng-click="doPrint();"><i class="fa fa-print"></i> PRINT</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="box box-default" style="height: 363px">
+                <div class="box-header">
+                    <i class="fa fa-file-text"></i> <h4 class="box-title">MANAGER DETAILS</h4>
+                </div>
+                <div class="box-body">
+                    <div class="form-horizontal col-sm-12">
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="namagerName">MANAGER:</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="namagerName">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="managerAddress">ADDRESS:</label>
+                            <div class="col-sm-8">
+                                <textarea name="" rows="4" cols="20" class="form-control" id="managerAddress" style="height: 83px">
+                                </textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="mobile">MOBILE:</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="mobile">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,116 @@
+<section class="content-header">
+    <h1>USER PRIVILEGES<small>manage user privileges</small></h1>
+
+    <ol class="breadcrumb">
+        <li>A</li>
+        <li>B</li>
+        <li>C</li>
+    </ol>
+</section>
+
+
+<section class="content">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="box box-default">
+                <div class="box-header">
+                    <i class="fa fa-file-text"></i> <h4 class="box-title">USER PRIVILEGES</h4>
+                </div>
+
+                <div class="box-body">
+                    <div class="form-horizontal">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="userName">USER NAME:</label>
+                                <div class="col-sm-8">
+                                    <select name="" class="form-control" id="userName">
+                                        <option>Mohan</option>
+                                        <option>Kasun</option>
+                                        <option>Nidura</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="branchName">BRANCH NAME</label>
+                                <div class="col-sm-8">
+                                    <select name="" class="form-control" id="branchName">
+                                        <option>galle</option>
+                                        <option>jaffna</option>
+                                        <option>kandy</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table table-hover table-fixed table-responsive">
+                        <thead>
+                            <tr>
+                                <th class="col-sm-2">#</th>
+                                <th class="col-sm-2">ADD</th>
+                                <th class="col-sm-2">DELETE</th>
+                                <th class="col-sm-2">EDIT</th>
+                                <th class="col-sm-2">VIEW</th>
+                                <th class="col-sm-2">ALL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-sm-2">
+                                    INVOICE
+                                </td>
+                                <td class="col-sm-2">
+                                    <input type="checkbox" value="ON" />
+                                </td>
+                                <td class="col-sm-2">
+                                    <input type="checkbox" value="ON" />
+                                </td>
+                                <td class="col-sm-2">
+                                    <input type="checkbox" value="ON" />
+                                </td>
+                                <td class="col-sm-2">
+                                    <input type="checkbox" value="ON" />
+                                </td>
+                                <td class="col-sm-2">
+                                    <input type="checkbox" value="ON" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-sm-2">
+                                    GRN
+                                </td>
+                                <td class="col-sm-2">
+                                    <input type="checkbox" value="ON" />
+                                </td>
+                                <td class="col-sm-2">
+                                    <input type="checkbox" value="ON" />
+                                </td>
+                                <td class="col-sm-2">
+                                    <input type="checkbox" value="ON" />
+                                </td>
+                                <td class="col-sm-2">
+                                    <input type="checkbox" value="ON" />
+                                </td>
+                                <td class="col-sm-2">
+                                    <input type="checkbox" value="ON" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="box-footer">
+                    <button class="btn btn-flat btn-primary" ng-show="mode === 'IDEAL'" ng-click="doNew();"><i class="fa fa-plus"></i> NEW</button>
+                    <button class="btn btn-flat btn-default" ng-show="mode === 'IDEAL'" ng-click="doEdit();"><i class="fa fa-edit"></i> EDIT</button>
+                    <button class="btn btn-flat btn-default" ng-show="mode === 'IDEAL'" ng-click="doDelete();"><i class="fa fa-trash"></i> DELETE</button>
+
+                    <button class="btn btn-flat btn-primary" ng-hide="mode === 'IDEAL'" ng-click="doSave();"><i class="fa fa-save"></i> SAVE</button>
+                    <button class="btn btn-flat btn-default" ng-hide="mode === 'IDEAL'" ng-click="doDiscard();"><i class="fa fa-close"></i> DISCARD</button>
+                    <button class="btn btn-flat btn-default" ng-hide="mode === 'IDEAL'" ng-click="doClear();"><i class="fa fa-retweet"></i> CLEAR</button>
+
+                    <button class="btn btn-flat btn-default" ng-show="mode === 'IDEAL'" ng-click="doPrint();"><i class="fa fa-print"></i> PRINT</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

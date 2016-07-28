@@ -14,7 +14,9 @@
                 //master data
                 "productModule",
                 "customerModule",
-                "userRegistrationModule"
+                "userRegistrationModule",
+                "branchRegistrationModule",
+                "userPrivilegesModule"
             ]);
 
     //controller
@@ -50,12 +52,12 @@
                     controller: "grnController",
                     templateUrl: "app/transaction/grn/grn.html"
                 })
-                
-                 .when("/customerPayment", {
+
+                .when("/customerPayment", {
                     controller: "customerPaymentController",
                     templateUrl: "app/transaction/customer-payment/customer-payment.html"
                 })
-                
+
                 .when("/product", {
                     controller: "productController",
                     templateUrl: "app/master-data/product/product.html"
@@ -69,8 +71,16 @@
                     controller: "userRegistrationController",
                     templateUrl: "app/master-data/user-registration/user-registration.html"
                 })
+                
+                .when("/branchRegistration", {
+                    controller: "branchRegistrationController",
+                    templateUrl: "app/master-data/branch-registration/branch-registration.html"
+                })
 
-
+                .when("/userPrivileges", {
+                    controller: "userPrivilegesController",
+                    templateUrl: "app/master-data/user-privileges/user-privileges.html"
+                })
 
                 .otherwise({redirectTo: "/"});
     });
