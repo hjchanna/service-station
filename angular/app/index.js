@@ -14,9 +14,12 @@
                 //master data
                 "productModule",
                 "customerModule",
+                "userRegistrationModule",
+                "branchRegistrationModule",
+                "userPrivilegesModule",
+                //dashboards
                 "copModule"
             ]);
-
     //controller
     var indexController = function ($scope) {
         $scope.sayGoodBye = function () {
@@ -45,33 +48,46 @@
                     controller: "invoiceController",
                     templateUrl: "app/transaction/invoice/invoice.html"
                 })
-                
-                 .when("/grn", {
+
+                .when("/grn", {
                     controller: "grnController",
                     templateUrl: "app/transaction/grn/grn.html"
                 })
-                
-                 .when("/customerPayment", {
+
+                .when("/customerPayment", {
                     controller: "customerPaymentController",
                     templateUrl: "app/transaction/customer-payment/customer-payment.html"
                 })
-                
+
                 .when("/product", {
                     controller: "productController",
                     templateUrl: "app/master-data/product/product.html"
                 })
-                
+
                 .when("/customer", {
                     controller: "customerController",
                     templateUrl: "app/master-data/customer/customer.html"
                 })
-                
+
                 .when("/dashboard", {
                     controller: "copController",
                     templateUrl: "app/dashboard/cop/cop.html"
                 })
-               
 
+                .when("/userRegistration", {
+                    controller: "userRegistrationController",
+                    templateUrl: "app/master-data/user-registration/user-registration.html"
+                })
+
+                .when("/branchRegistration", {
+                    controller: "branchRegistrationController",
+                    templateUrl: "app/master-data/branch-registration/branch-registration.html"
+                })
+
+                .when("/userPrivileges", {
+                    controller: "userPrivilegesController",
+                    templateUrl: "app/master-data/user-privileges/user-privileges.html"
+                })
 
                 .otherwise({redirectTo: "/"});
     });
