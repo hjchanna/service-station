@@ -9,10 +9,10 @@
                 //transactions
                 "jobCardModule",
                 "invoiceModule",
+                "grnModule",
                 //master data
                 "productModule",
-                "customerModule",             
-                
+                "customerModule",
             ]);
 
     //controller
@@ -42,17 +42,25 @@
                 .when("/invoice", {
                     controller: "invoiceController",
                     templateUrl: "app/transaction/invoice/invoice.html"
-
                 })
+                
+                 .when("/grn", {
+                    controller: "grnController",
+                    templateUrl: "app/transaction/grn/grn.html"
+                })
+                
                 .when("/product", {
                     controller: "productController",
                     templateUrl: "app/master-data/product/product.html"
                 })
+                
                 .when("/customer", {
                     controller: "customerController",
                     templateUrl: "app/master-data/customer/customer.html"
                 })
-                
+               
+
+
                 .otherwise({redirectTo: "/"});
     });
 }());
