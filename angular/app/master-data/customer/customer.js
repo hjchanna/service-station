@@ -2,10 +2,9 @@
     var customerModule = angular.module("customerModule", ['ui-notification']);
 
     var customerController = function ($scope, Notification) {
+        //veriable
         $scope.mode = "IDEAL";
-
         $scope.customer = "";
-        $scope.customers = null;
 
 //       actions
         $scope.doNew = function () {
@@ -19,10 +18,13 @@
 
         $scope.doEdit = function () {
             $scope.setMode('EDIT');
+            
         };
 
         $scope.doDelete = function () {
-
+            if (customer) {
+                $scope.customers.splice(customer, 1);
+            }
         };
 
         $scope.doPrint = function () {
@@ -30,7 +32,26 @@
         };
 
         $scope.doSave = function () {
+            if ($scope.customer.indexNo &&
+                    $scope.customer.nic &&
+                    $scope.customer.city &&
+                    $scope.customer.mobile &&
+                    $scope.customer.name) {
+
+                angular.forEach($scope.customers, function (value, key) {
+                    if (value.indexNo == $scope.customer.indexNo) {
+                        if (value.nic == $scope.customer.nic) {
+                            $scope.customers.splice(key, 1);
+
+                        }
+                    }
+                    ;
+                });
+                $scope.customers.push($scope.customer);
             Notification.success('Success');
+
+                $scope.customer = "";
+            }
         };
 
         $scope.doDiscard = function () {
@@ -43,49 +64,23 @@
             $scope.customer = null;
         };
 
+        $scope.doSelectCustomer = function (customer) {
+            $scope.customer = customer;
+            console.log("customer selected");
+        };
+
 
 //        other funtion
+    
+        $scope.setCustomer = function (customer) {
+            alert("sdf");
+            $scope.customer = customer;
+        };
         $scope.setMode = function (mode) {
             $scope.mode = mode;
         };
 
-        $scope.saveCustomer = function () {
-            if ($scope.customer.indexNo &&
-                    $scope.customer.nic &&
-                    $scope.customer.city &&
-                    $scope.customer.mobile &&
-                    $scope.customer.name) {
-
-                $scope.customer = {
-                    "indexNo": $scope.customer.indexNo,
-                    "nic": $scope.customer.nic,
-                    "name": $scope.customer.name,
-                    "mobile": $scope.customer.mobile,
-                    "city": $scope.customer.city,
-                };
-                angular.forEach($scope.customers, function (value, key) {
-                    if (value.indexNo == $scope.customer.indexNo) {
-                        if (value.nic == $scope.customer.nic) {
-                            $scope.customers.splice(key, 1);
-
-                        }
-                    }
-                    ;
-                });
-                $scope.customers.push($scope.customer);
-
-                $scope.customer = "";
-            }
-
-        };
-        $scope.removeCustomer = function (customer) {
-            if (customer != -1) {
-                var res = confirm('Do you want to delete ?');
-                if (res) {
-                    $scope.customers.splice(customer, 1);
-                }
-            }
-        };
+        
         $scope.updateCustomer = function (customer) {
             if (customer) {
                 $scope.customer.indexNo = customer.indexNo;
@@ -112,7 +107,7 @@
                         "indexNo": "552",
                         "nic": "234232433V",
                         "name": "kaza",
-                        "mobile": "4534543",
+                        "mobile": 2352352,
                         "city": "plolnnaruwa",
                         "address": "#12,\nkaluthara.",
                         "email": "dsfs.sd@gmail.com",
