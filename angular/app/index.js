@@ -14,6 +14,7 @@
                 //master data
                 "productModule",
                 "customerModule",
+                "copModule"
             ]);
 
     //controller
@@ -63,6 +64,11 @@
                 .when("/customer", {
                     controller: "customerController",
                     templateUrl: "app/master-data/customer/customer.html"
+                })
+                
+                .when("/dashboard", {
+                    controller: "copController",
+                    templateUrl: "app/dashboard/cop/cop.html"
                 })
                
 
