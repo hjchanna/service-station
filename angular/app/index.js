@@ -8,9 +8,11 @@
                 "myTest",
                 //transactions
                 "jobCardModule",
+                "invoiceModule",
                 //master data
                 "productModule",
-                "customerModule"
+                "customerModule",             
+                
             ]);
 
     //controller
