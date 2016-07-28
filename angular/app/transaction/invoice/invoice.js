@@ -39,7 +39,7 @@
         };
 
         $scope.doClear = function () {
-            $scope.job = null;
+            $scope.invoice = null;
         };
 
 //        other funtion
