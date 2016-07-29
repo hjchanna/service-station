@@ -6,7 +6,7 @@
         $scope.mode = "IDEAL";
         $scope.customer = "";
 
-//       actions
+        //actions
         $scope.doNew = function () {
             $scope.doClear();
 
@@ -18,7 +18,6 @@
 
         $scope.doEdit = function () {
             $scope.setMode('EDIT');
-            
         };
 
         $scope.doDelete = function () {
@@ -38,17 +37,8 @@
                     $scope.customer.mobile &&
                     $scope.customer.name) {
 
-                angular.forEach($scope.customers, function (value, key) {
-                    if (value.indexNo == $scope.customer.indexNo) {
-                        if (value.nic == $scope.customer.nic) {
-                            $scope.customers.splice(key, 1);
-
-                        }
-                    }
-                    ;
-                });
                 $scope.customers.push($scope.customer);
-            Notification.success('Success');
+                Notification.success('Success');
 
                 $scope.customer = "";
             }
@@ -71,32 +61,16 @@
 
 
 //        other funtion
-    
+
         $scope.setCustomer = function (customer) {
-            alert("sdf");
             $scope.customer = customer;
         };
+
         $scope.setMode = function (mode) {
             $scope.mode = mode;
         };
 
-        
-        $scope.updateCustomer = function (customer) {
-            if (customer) {
-                $scope.customer.indexNo = customer.indexNo;
-                $scope.customer.nic = customer.nic;
-                $scope.customer.name = customer.name;
-                $scope.customer.mobile = customer.mobile;
-                $scope.customer.city = customer.city;
-            }
-            $scope.removeCustomer(customer);
-        };
-
-
-
-
-
-//        $http
+        //$http
         $scope.getNextCustomerNumber = function () {
             return "1";
         };
@@ -108,18 +82,18 @@
                         "nic": "234232433V",
                         "name": "kaza",
                         "mobile": 2352352,
-                        "city": "plolnnaruwa",
+                        "city": "polonnaruwa",
                         "address": "#12,\nkaluthara.",
                         "email": "dsfs.sd@gmail.com",
                         "creditLimitAmount": 1200.00,
                         "creditLimitDays": 45,
-                        "backlist": true,
-                        "reason": "payment not conpleted",
-                        "telephone1": "2352352",
-                        "telephone2": "9696988",
-                        "telephone3": "34534534",
+                        "blacklist": true,
+                        "blacklistReason": "payment not conpleted",
+                        "telephone1": 432342,
+                        "telephone2": 2342342,
+                        "telephone3": 2342342,
                         "fax": 669699999,
-                        "cashCustomer": false
+                        "cashCustomer": true
                     }];
             }
 

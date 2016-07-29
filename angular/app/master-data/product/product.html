@@ -22,28 +22,28 @@
                         <div class="form-group">
                             <label class="control-label col-sm-3" for="productNo">PRODUCT NO.:</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="productNo" ng-model="product.productNo" />
+                                <input type="text" class="form-control" id="productNo" ng-model="product.productNo" ng-disabled="mode !== 'IDEAL'"/>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label col-sm-3" for="brand">BRAND:</label>
                             <div class="col-sm-9"> 
-                                <input type="text" class="form-control" id="brand" ng-change="updateProductDescription();"  typeahead-on-select="updateProductDescription()" ng-model="product.brand" uib-typeahead="brandName for brandName in getBrands($viewValue) | filter:$viewValue | limitTo:8" >                                
+                                <input type="text" class="form-control" id="brand" ng-change="updateProductDescription();" ng-disabled="mode === 'IDEAL'" typeahead-on-select="updateProductDescription()" ng-model="product.brand" uib-typeahead="brandName for brandName in getBrands($viewValue) | filter:$viewValue | limitTo:8" >                                
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label col-sm-3" for="category">CATEGORY:</label>
                             <div class="col-sm-9"> 
-                                <input type="text" class="form-control" id="category" ng-change="updateProductDescription();" typeahead-on-select="updateProductDescription()" ng-model="product.category" uib-typeahead="categoryName for categoryName in getCategories($viewValue) | filter:$viewValue | limitTo:8">                                
+                                <input type="text" class="form-control" id="category" ng-change="updateProductDescription();" ng-disabled="mode === 'IDEAL'" typeahead-on-select="updateProductDescription()" ng-model="product.category" uib-typeahead="categoryName for categoryName in getCategories($viewValue) | filter:$viewValue | limitTo:8">                                
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label col-sm-3" for="model">MODEL:</label>
                             <div class="col-sm-9"> 
-                                <input type="text" class="form-control" id="model" ng-change="updateProductDescription();" typeahead-on-select="updateProductDescription()" ng-model="product.model" uib-typeahead="modelno for modelno in getModels($viewValue) | filter:$viewValue | limitTo:8">
+                                <input type="text" class="form-control" id="model" ng-change="updateProductDescription();" ng-disabled="mode === 'IDEAL'" typeahead-on-select="updateProductDescription()" ng-model="product.model" uib-typeahead="modelno for modelno in getModels($viewValue) | filter:$viewValue | limitTo:8">
                             </div>
                         </div>
                     </div>
@@ -60,19 +60,19 @@
                         <div class="form-group">
                             <label class="control-label col-sm-4" for="description">DESCRIPTION:</label>
                             <div class="col-sm-8"> 
-                                <input type="text" class="form-control"  id="description" ng-model="product.description" value="product.brandName">                                
+                                <input type="text" class="form-control"  id="description" ng-model="product.description" value="product.brandName" ng-disabled="mode === 'IDEAL'">                                
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-4" for="print-desc">PRINT DESCRIPTION:</label>
                             <div class="col-sm-8"> 
-                                <input type="text" class="form-control" id="print-desc" ng-model="product.printDescription">                                
+                                <input type="text" class="form-control" id="print-desc" ng-model="product.printDescription" ng-disabled="mode === 'IDEAL'">                                
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-4" for="reorder-qty">RE-ORDER QTY:</label>
                             <div class="col-sm-8"> 
-                                <input type="number" class="form-control" id="reorder-qty" ng-model="product.reOrderQuantity">                                
+                                <input type="number" class="form-control" id="reorder-qty" ng-model="product.reOrderQuantity" ng-disabled="mode === 'IDEAL'">                                
                             </div>
                         </div>
                         <div class="form-group">
@@ -82,7 +82,7 @@
                                 <div class="col-sm-4">
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" name="stockType" ng-value="STOCK" ng-model="product.stockType" checked>
+                                            <input type="radio" name="stockType" ng-value="STOCK" ng-model="product.stockType" checked ng-disabled="mode === 'IDEAL'">
                                             STOCK
                                         </label>
                                     </div>
@@ -90,7 +90,7 @@
                                 <div class="col-sm-4">
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" name="stockType" ng-value="NON-STOCK" ng-model="product.stockType">
+                                            <input type="radio" name="stockType" ng-value="NON-STOCK" ng-model="product.stockType" ng-disabled="mode === 'IDEAL'">
                                             N.STOCK
                                         </label>
                                     </div>
@@ -98,7 +98,7 @@
                                 <div class="col-sm-4">
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" name="stockType" ng-value="SERVICE" ng-model="product.stockType">
+                                            <input type="radio" name="stockType" ng-value="SERVICE" ng-model="product.stockType" ng-disabled="mode === 'IDEAL'">
                                             SERVICE
                                         </label>
                                     </div>
@@ -122,16 +122,16 @@
                             <tr>
                                 <th class="text-center">#</th>
                                 <th class="col-sm-4">UNIT NAME
-                                    <input type="text" name="" ng-model="tempUnit.unitName" value="" class="form-control "/>
+                                    <input type="text" name="" ng-model="tempUnit.unitName" value="" class="form-control " ng-disabled="mode === 'IDEAL'">
                                 </th>
                                 <th class="col-sm-2">COST PRICE
-                                    <input type="number" name="" ng-model="tempUnit.costPrice" value="" class="form-control"/>
+                                    <input type="number" name="" ng-model="tempUnit.costPrice" value="" class="form-control" ng-disabled="mode === 'IDEAL'">
                                 </th>
                                 <th class="col-sm-2">SALES PRICE
-                                    <input type="number" name="" value="" ng-model="tempUnit.salesPrice" class="form-control"/>
+                                    <input type="number" name="" value="" ng-model="tempUnit.salesPrice" class="form-control" ng-disabled="mode === 'IDEAL'">
                                 </th>
                                 <th class="col-sm-2">QUANTITY
-                                    <input type="number" name="" value="" ng-model="tempUnit.quantity"  ng-keypress="AddUnitKeyEvent($event)" class="form-control"/>
+                                    <input type="number" name="" value="" ng-model="tempUnit.quantity"  ng-keypress="AddUnitKeyEvent($event)" class="form-control" ng-disabled="mode === 'IDEAL'">
                                 </th>
                                 <th>
                                     <br>
