@@ -68,7 +68,7 @@
 
                 .when("/stockAdjustment", {
                     controller: "stockAdjustmentController",
-                    templateUrl: "app/transaction/stock-adjustment/stock-adjustment.html"
+                    templateUrl: "app/transaction/stock-adjustmant/stock-adjustmant.html"
                 })
 
                 .when("/product", {
