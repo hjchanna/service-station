@@ -1,10 +1,10 @@
 (function () {
-    var userModule = angular.module("userModule", []);
+    var userRegistrationModule = angular.module("userRegistrationModule", []);
 
-    var userController = function ($scope) {
+    var userRegistrationController = function ($scope) {
 
     };
 
-    userModule.controller("userController", userController);
+    userModule.controller("userRegistrationController", userRegistrationController);
 
 }());

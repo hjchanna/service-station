@@ -14,7 +14,7 @@
                 //master data
                 "productModule",
                 "customerModule",
-                "userModule"
+                "userRegistrationModule"
             ]);
 
     //controller
@@ -65,8 +65,8 @@
                     controller: "customerController",
                     templateUrl: "app/master-data/customer/customer.html"
                 })
-                .when("/user", {
-                    controller: "userController",
+                .when("/userRegistration", {
+                    controller: "userRegistrationController",
                     templateUrl: "app/master-data/user-registration/user-registration.html"
                 })
 
