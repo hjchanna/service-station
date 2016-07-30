@@ -59,7 +59,7 @@
         
         $scope.getSupplierName= function (name){
             return ["Kasun Chamara","Nidura Prageeth","Mohan Jayamuni"];
-        }
+        };
 
     };
 

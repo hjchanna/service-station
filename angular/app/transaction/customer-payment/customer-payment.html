@@ -170,77 +170,151 @@
                             </div>
 
                             <div class="modal-body no-padding">
-                                <div class="col-sm-4">
-                                    <div class="box box-default" style="height: 311px">
+                                <div class="col-sm-12">
+                                    <div class="box box-default">
                                         <div class="box-header">
                                             <i class="fa fa-money"></i> <h4 class="box-title">CASH</h4>
-                                        </div>
-                                        <div class="box-body">
-                                            <div class="form-group">
-                                                <div class="col-sm-12 ">
-                                                    <label class="control-label" >AMOUNT:</label>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="col-sm-12">
-                                                    <input type="text" class="form-control">
-                                                </div>
+                                            <div class="form-group form-inline">
+                                                <label class="control-label col-sm-2" >AMOUNT:</label>
+                                                <input type="text" class="form-control col-sm-4">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-4">
-                                    <div class="box box-default" style="height: 311px">
+                                <div class="col-sm-12">
+                                    <div class="box box-default">
                                         <div class="box-header">
-                                            <i class="fa fa-cc-mastercard"></i> <h4 class="box-title">CARD</h4>
-                                        </div>
-                                        <div class="box-body">
-                                            <div class="form-horizontal">
-                                                <div class="form-group col-sm-12">
-                                                    <label class="control-label" >AMOUNT:</label>
-                                                </div>
-                                                <div class="form-group col-sm-12">
-                                                    <input type="number" class="form-control" id="cashAmount" >
-                                                </div>
-                                                <div class="form-group col-sm-12">
-                                                    <label class="control-label" >CARD TYPE:</label>
-                                                </div>
-                                                <div class="form-group col-sm-12">
-                                                    <select name="" class="form-control">
-                                                        <option>VISA</option>
-                                                        <option>MASTER</option>
-                                                    </select>
-                                                </div>
+                                            <i class="fa fa-cc-mastercard"></i> <h4 class="box-title">CARDS</h4>
+                                            <div class="pull-right">
+                                                RS:12000.00
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="box box-default" style="height: 311px">
-                                        <div class="box-header">
-                                            <i class="fa fa-file"></i> <h4 class="box-title">CHEQUE</h4>
-                                        </div>
                                         <div class="box-body">
                                             <div class="form-horizontal">
-                                                <div class="form-group">
-                                                    <div class="col-sm-12">
-                                                        <div class="form-group col-sm-12">
-                                                            <label class="control-label" >AMOUNT:</label>
-                                                        </div>
-                                                        <div class="form-group col-sm-12">
-                                                            <input type="number" class="form-control"/>
-                                                        </div>
-                                                        <div class="form-group col-sm-12">
-                                                            <label class="control-label" >CHQ NO.& DATE</label>
-                                                        </div>
-                                                        <div class="form-group col-sm-12">
-                                                            <input type="number" class="form-control">
-                                                        </div>
-                                                        <div class="form-group col-sm-12">
-                                                            <input type="DATE" class="form-control" >
-                                                        </div>
+                                                <div class="col-sm-4">
+                                                    <div class="form-group col-sm-12">
+                                                        <label class="control-label" >CARD NO.:</label>
+                                                        <input type="number" class="form-control"/>
                                                     </div>
                                                 </div>
+                                                <div class="col-sm-4 no-margin no-padding">
+                                                    <div class="form-group col-sm-12 ">
+                                                        <label class="control-label" >TYPE:</label>
+                                                        <select class="form-control">
+                                                            <option>MASTER</option>
+                                                            <option>VISA</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div class="form-group col-sm-12">
+                                                        <label class="control-label" >AMOUNT:</label>
+                                                        <input type="number" class="form-control"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-1">
+                                                    <div class="form-group col-sm-12">
+                                                        <label class="control-label" ></label>                                                        
+                                                        <button class="btn btn-default btn-flat" style="margin-top: 6px">+</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <table class="table table-responsive table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>CARD NO</th>
+                                                            <th>TYPE</th>
+                                                            <th>AMOUNT</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>347888345476</td>
+                                                            <td>VISA</td>
+                                                            <td>12000.00</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="box box-default">
+                                        <div class="box-header">
+                                            <i class="fa fa-file"></i> <h4 class="box-title">CHEQUES</h4>
+                                            <div class="pull-right">
+                                                RS:12000.00
+                                            </div>
+                                        </div>
+                                        <div class="box-body">
+                                            <div class="form-horizontal">
+                                                <div class="col-sm-4">
+                                                    <div class="form-group col-sm-12">
+                                                        <label class="control-label" >CHEQUE NO.:</label>
+                                                        <input type="number" class="form-control"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="form-group col-sm-12">
+                                                        <label class="control-label" >DATE:</label>
+                                                        <input type="date" class="form-control" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div class="form-group col-sm-12">
+                                                        <label class="control-label" >AMOUNT:</label>
+                                                        <input type="number" class="form-control"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-1">
+                                                    <div class="form-group col-sm-12">
+                                                        <label class="control-label" ></label>                                                        
+                                                        <button class="btn btn-default btn-flat" style="margin-top: 6px">+</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <table class="table table-responsive table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>CHEQUE NO</th>
+                                                            <th>DATE</th>
+                                                            <th>AMOUNT</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>347888345476</td>
+                                                            <td>2012.12.12</td>
+                                                            <td>12000.00</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="box-footer">
+                                            <div class="col-sm-4 pull-right">
+                                                <div class="form-horizontal">
+
+                                                    <div class="form-group">
+                                                        <label class="control-label col-sm-4" for="total">TOTAL:</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control" id="total"/>
+                                                        </div> 
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-sm-4" for="balance">BALANCE:</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control " id="balance"/>
+                                                        </div> 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="pull-left">
+                                                <button type="button" class="btn btn-primary btn-flat" data-dismiss="modal" ng-click="doSelectPayment(34000.00)">Done</button>
+                                                <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Close</button>
                                             </div>
                                         </div>
                                     </div>
@@ -248,11 +322,7 @@
                             </div>
 
                             <div class="modal-footer">
-                                <div class="pull-left">
-                                    <h3>RS: 34000.00</h3>
-                                </div>
-                                <button type="button" class="btn btn-info btn-flat" data-dismiss="modal" ng-click="doSelectPayment(34000.00)">Done</button>
-                                <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Close</button>
+
                             </div>
                         </div>
                     </div>

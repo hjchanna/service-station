@@ -11,7 +11,7 @@
 
 <section class="content">
     <div class="row">
-        <div class="col-sm-8">
+        <div class="col-sm-12">
             <div class="box box-default">
                 <div class="box-header">
                     <i class="fa fa-list"></i> <h4 class="box-title">INVOICE DETAILS</h4>
@@ -19,18 +19,18 @@
 
                 <div class="box-body">
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <div class="form-horizontal">
                                 <div class="form-group">
                                     <label class="control-label col-sm-4" for="invoice-no">INVOICE NO.:</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="invoice-no" ng-model="invoice.invoiceNo" uib-typeahead="invoiceNo for invoiceNo in getInvoiceNo($viewValue) | filter:$viewValue | limitTo:8" ng-disabled="mode !== 'IDEAL'">
+                                        <input type="text" class="form-control input-sm" id="invoice-no" ng-model="invoice.invoiceNo" uib-typeahead="invoiceNo for invoiceNo in getInvoiceNo($viewValue) | filter:$viewValue | limitTo:8" ng-disabled="mode !== 'IDEAL'">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-sm-4" for="customer-name">CUSTOMER :</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="customer-name" ng-model="invoice.customerName" uib-typeahead="customerName for customerName in getCustomers($viewValue) | filter:$viewValue | limitTo:8" ng-disabled="mode === 'IDEAL'">
+                                        <input type="text" class="form-control input-sm" id="customer-name" ng-model="invoice.customerName" uib-typeahead="customerName for customerName in getCustomers($viewValue) | filter:$viewValue | limitTo:8" ng-disabled="mode === 'IDEAL'">
                                     </div>
                                 </div>
 
@@ -38,70 +38,24 @@
                             </div>
                         </div>
 
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <div class="form-horizontal">
                                 <div class="form-group">
                                     <label class="control-label col-sm-4" for="date">DATE</label>
                                     <div class="col-sm-8">
-                                        <input type="date" class="form-control" id="date" ng-model="invoice.date" ng-disabled="mode === 'IDEAL'">
+                                        <input type="date" class="form-control input-sm" id="date" ng-model="invoice.date" ng-disabled="mode === 'IDEAL'">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-sm-4" for="date">UNKNOWN</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="date" ng-disabled="mode === 'IDEAL'">
+                                        <input type="text" class="form-control input-sm" id="date" ng-disabled="mode === 'IDEAL'">
                                     </div>
                                 </div>
 
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-sm-4">
-            <div class="box box-default" style="height: 162px;">
-                <div class="box-header">
-                    <i class="fa fa-money"></i> <h4 class="box-title">PAYMENT METHOD</h4>
-                </div>
-
-                <div class="box-body">
-
-                    <div class="form-group">
-                        <div class="control-label col-sm-12">
-                            <div class="radio-inline col-sm-4">
-                                <label for="payment-type">
-                                    <input type="radio" name="payment-type" id="payment-type" value="ON" checked/>
-                                    Cash
-                                </label>
-                            </div>
-                            <div class="radio-inline col-sm-4">
-                                <label for="payment-type">
-                                    <input type="radio" name="payment-type" id="payment-type" value="ON"/>
-                                    Credit
-                                </label>
-                            </div>
-                            <div class="radio-inline col-sm-4">
-                                <label for="payment-type">
-                                    <input type="radio" name="payment-type" id="payment-type" value="ON"/>
-                                    Discount
-                                </label>
-                            </div>
-                        </div>
-                    </div><br>
-
-                    <div class="form-group">
-                        <div class="control-label col-sm-12">
-                            <div class="checkbox">
-                                <label for="internal-transfer">
-                                    <input type="checkbox" id="internal-transfer" value="ON"/>
-                                    Internal transfer
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>
@@ -117,37 +71,41 @@
                 </div>
 
                 <div class="box-body">
-                    <table class="table table-hover table-fixed table-bordered">
+                    <table class="table table-hover table-fixed table-responsive">
                         <thead class="btn-default">
                             <tr>
                                 <th class="col-sm-2">
                                     PRODUCT NO
-                                    <input id="othertext1" class="form-control"  type="text" ng-keypress="checkEnter($event)" ng-model="tempProduct.productNo" uib-typeahead="tempProduct.productNo for tempProduct in getProducts($viewValue) | filter:$viewValue | limitTo:8" typeahead-on-select="setProducts($item)" ng-disabled="mode === 'IDEAL'" >
+                                    <div class="input-group">
+                                        <input id="othertext1" class="form-control input-sm"  type="text" ng-keypress="checkEnter($event)" ng-model="tempProduct.productNo" uib-typeahead="tempProduct.productNo for tempProduct in getProducts($viewValue) | filter:$viewValue | limitTo:8" typeahead-on-select="setProducts($item)" ng-disabled="mode === 'IDEAL'" >
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default btn-flat input-sm" type="button" data-toggle="modal" data-target="#productSearch"><i class="fa fa-search"></i></button>
+                                        </span>
+                                    </div>
                                 </th>
                                 <th class="col-sm-2">  
                                     MODEL NO
-                                    <input id="othertext1" class="form-control"  type="text" ng-keypress="checkEnter($event)" ng-model="tempProduct.modelNo" uib-typeahead="tempProduct.modelNo for tempProduct in getModels($viewValue) | filter:$viewValue | limitTo:8" typeahead-on-select="setModels($item)" ng-disabled="mode === 'IDEAL'">
+                                    <input id="othertext1" class="form-control input-sm"  type="text" ng-keypress="checkEnter($event)" ng-model="tempProduct.modelNo" uib-typeahead="tempProduct.modelNo for tempProduct in getModels($viewValue) | filter:$viewValue | limitTo:8" typeahead-on-select="setModels($item)" ng-disabled="mode === 'IDEAL'">
                                 </th>
                                 <th class="col-sm-3">   
                                     DESCRIPTION
-                                    <input id="othertext1"  class="form-control"  type="text" ng-model="tempProduct.description"  ng-disabled="mode === 'IDEAL'">
+                                    <input id="othertext1"  class="form-control input-sm"  type="text" ng-model="tempProduct.description"  ng-disabled="mode === 'IDEAL'">
                                 </th>
                                 <th class="col-sm-1">      
                                     UNIT
-                                    <input id="othertext1" class="form-control"  type="text" ng-keypress="checkEnter($event)" ng-model="tempProduct.unit" ng-disabled="mode === 'IDEAL'">
+                                    <input id="othertext1" class="form-control input-sm"  type="text" ng-keypress="checkEnter($event)" ng-model="tempProduct.unit" ng-disabled="mode === 'IDEAL'">
                                 </th>
                                 <th class="col-sm-2">  
                                     UNIT PRICE
-                                    <input id="othertext1" class="form-control"  type="text" ng-keypress="checkEnter($event)" ng-model="tempProduct.unitPrice" ng-disabled="mode === 'IDEAL'">
+                                    <input id="othertext1" class="form-control input-sm"  type="text" ng-keypress="checkEnter($event)" ng-model="tempProduct.unitPrice" ng-disabled="mode === 'IDEAL'">
                                 </th>
                                 <th class="col-sm-1">  
                                     REC QTY
-                                    <input id="othertext1" class="form-control"  type="text" ng-keypress="checkEnter($event)" ng-model="tempProduct.recQty" ng-disabled="mode === 'IDEAL'">
+                                    <input id="othertext1" class="form-control input-sm"  type="text" ng-keypress="checkEnter($event)" ng-model="tempProduct.recQty" ng-disabled="mode === 'IDEAL'">
                                 </th>
                                 <th class="col-sm-1">  
                                     VALUE(LKR)
                                 </th>
-
                             </tr>
                         </thead>
                         <tbody>
@@ -183,25 +141,83 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-4">TOTAL VALUE</label>
                                 <div class="col-sm-7">
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control input-sm">
                                 </div>
                             </div><br>
                             <div class="form-group">
                                 <label class="control-label col-sm-4">DISCOUNT LESS</label>
                                 <div class="col-sm-7">
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control input-sm">
                                 </div>
                             </div><br>
                             <div class="form-group">
                                 <label class="control-label col-sm-4">FINAL VALUE</label>
                                 <div class="col-sm-7">
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control input-sm">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="productSearch" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Product Search</h4>
+                        </div>
+
+                        <div class="modal-body no-padding">
+                            <table class="table table-hover table-fixed">
+                                <thead class="btn-default">
+                                    <tr>
+                                        <th class="col-sm-2">
+                                            CATEGORY
+                                            <input id="othertext1" placeholder="" class="form-control" ng-model="invoice.product.modelNo" type="text">
+                                        </th>
+
+                                        <th class="col-sm-2">
+                                            BRAND
+                                            <input id="othertext1" placeholder="" class="form-control" ng-model="invoice.product.productNo" type="text">
+                                        </th>
+
+                                        <th class="col-sm-3">
+                                            DESCRIPTION
+                                            <input id="othertext1" placeholder="" class="form-control" ng-model="invoice.product.description" type="text">
+                                        </th>
+                                        <th class="col-sm-2">MODEL</th>
+                                        <th class="col-sm-2">PRICE</th>
+                                        <th class="col-sm-1">QTY</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="product in getProducts(null)| filter:invoice.product">
+                                        <td class="col-sm-2">
+                                            {{product.modelNo}}
+                                        </td>
+                                        <td class="col-sm-2">
+                                            {{product.productNo}}
+                                        </td>
+                                        <td class="col-sm-3">
+                                            {{product.description}}
+                                        </td>
+                                        <td class="col-sm-2">{{product.modelNo}}</td>
+                                        <td class="col-sm-2">{{product.unitPrice}}</td>
+                                        <td class="col-sm-1">{{product.value}}</td>
+                                    </tr>    
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

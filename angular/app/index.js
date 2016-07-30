@@ -12,6 +12,8 @@
                 "grnModule",
                 "customerPaymentModule",
                 "vehicleServiceModule",
+                "stockTransferModule",
+                "stockAdjustmentModule",
                 //master data
                 "productModule",
                 "customerModule",
@@ -62,6 +64,16 @@
                 .when("/vehicleService", {
                     controller: "vehicleServiceController",
                     templateUrl: "app/transaction/vehicle-service/vehicle-service.html"
+                })
+
+                .when("/stockTransfer", {
+                    controller: "stockTransferController",
+                    templateUrl: "app/transaction/stock-transfer/stock-transfer.html"
+                })
+
+                .when("/stockAdjustment", {
+                    controller: "stockAdjustmentController",
+                    templateUrl: "app/transaction/stock-adjustment/stock-adjustment.html"
                 })
 
                 .when("/product", {

@@ -1,0 +1,144 @@
+<section class="content-header">
+    <h1>STOCK TRANSFER <small>stock transfer with other branches</small></h1>
+
+    <ol class="breadcrumb">
+        <li>A</li>
+        <li>B</li>
+        <li>C</li>
+    </ol>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="box box-default">
+                <div class="box-header">
+                    <i class="fa fa-list"></i> <h4 class="box-title">STOCK TRANSFER</h4>
+                </div>
+
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-5">TRANSFER NO :</label>
+                                    <div class="col-sm-7">
+                                        <input type="text" class="form-control" ng-model="grn.invoiceNo" ng-disabled="mode !== 'IDEAL'">
+                                    </div>
+                                </div>  
+                                <div class="form-group">
+                                    <label class="control-label col-sm-5">BRANCH NAME :</label>
+                                    <div class="col-sm-7">
+                                        <input type="text" class="form-control" ng-model="grn.suplierName" uib-typeahead="suplierName for suplierName in getSupplierName($viewValuew) | filter:$viewValue | limitTo:8" ng-disabled="mode === 'IDEAL'">
+                                    </div>
+                                </div>  
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4">REC NO :</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" ng-model="grn.recNo" uib-typeahead="recNo for recNo in getRecNumber($viewValue) | filter:$viewValue | limitTo:8" ng-disabled="mode === 'IDEAL'">
+                                    </div>
+                                </div>    
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4">REC DATE :</label>
+                                    <div class="col-sm-8">
+                                        <input type="date" class="form-control" ng-model="grn.recDate" ng-disabled="mode === 'IDEAL'">
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4">UNKNOWN :</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" ng-model="grn.unknown" ng-disabled="mode === 'IDEAL'">
+                                    </div>
+                                </div> 
+                                <div class="form-group">
+                                    <label class="control-label col-sm-4">REMARK :</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" ng-model="grn.remark" ng-disabled="mode === 'IDEAL'">
+                                    </div>
+                                </div>    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">    
+        <div class="col-sm-12">
+            <div class="box box-default">
+                <div class="box-header">
+                    <i class="fa fa-list-ul"></i><h3 class="box-title"> PRODUCT AND MODEL DETAILS</h3>
+                </div>
+
+                <div class="box-body">
+                    <table class="table table-hover table-fixed">
+                        <thead class="btn-default">
+                            <tr>
+                                <th class="col-sm-2">
+                                    PRODUCT NO
+                                    <input id="othertext1" class="form-control"  type="text" ng-model="grn.productNo" ng-disabled="mode === 'IDEAL'">
+                                </th>
+                                <th class="col-sm-2">  
+                                    MODEL NO
+                                    <input id="othertext1" class="form-control" ng-model="grn.modelNo" ng-disabled="mode === 'IDEAL'">
+                                </th>
+                                <th class="col-sm-3">   
+                                    DESCRIPTION
+                                    <input id="othertext1"  class="form-control"  type="text" ng-model="grn.description" ng-disabled="mode === 'IDEAL'">
+                                </th>
+                                <th class="col-sm-3">  
+                                    UNIT PRICE
+                                </th>
+                                <th class="col-sm-1">  
+                                    REC QTY
+                                    <input id="othertext1" class="form-control"  type="text" ng-model="grn.recQty" ng-disabled="mode === 'IDEAL'">
+                                </th>
+                                <th class="col-sm-1">  
+                                    VALUE(LKR)
+                                </th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="product in grn.products">
+                                <td class="col-sm-2">{{product.productNo}}</td>
+                                <td class="col-sm-2">{{product.modelNo}}</td>
+                                <td class="col-sm-3">{{product.description}}</td>
+                                <td class="col-sm-2">{{product.unitPrice}}</td>
+                                <td class="col-sm-1">{{product.recQty}}</td>
+                                <td class="col-sm-1">{{product.value}}</td>
+
+                            </tr>    
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <div class="box-footer">
+                    <div class="col-sm-7">
+                        <button class="btn btn-flat btn-primary" ng-show="mode === 'IDEAL'" ng-click="doNew();"><i class="fa fa-plus"></i> NEW</button>
+                        <button class="btn btn-flat btn-default" ng-show="mode === 'IDEAL'" ng-click="doEdit();"><i class="fa fa-edit"></i> EDIT</button>
+                        <button class="btn btn-flat btn-default" ng-show="mode === 'IDEAL'" ng-click="doDelete();"><i class="fa fa-trash"></i> DELETE</button>
+
+                        <button class="btn btn-flat btn-primary" ng-hide="mode === 'IDEAL'" ng-click="doSave();"><i class="fa fa-save"></i> SAVE</button>
+                        <button class="btn btn-flat btn-default" ng-hide="mode === 'IDEAL'" ng-click="doDiscard();"><i class="fa fa-close"></i> DISCARD</button>
+                        <button class="btn btn-flat btn-default" ng-hide="mode === 'IDEAL'" ng-click="doClear();"><i class="fa fa-retweet"></i> CLEAR</button>
+
+                        <button class="btn btn-flat btn-default" ng-show="mode === 'IDEAL'" ng-click="doPrint();"><i class="fa fa-print"></i> PRINT</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
