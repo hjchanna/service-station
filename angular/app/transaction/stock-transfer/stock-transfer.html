@@ -84,11 +84,11 @@
                     <table class="table table-hover table-fixed">
                         <thead class="btn-default">
                             <tr>
-                                <th class="col-sm-2">
+                                <th class="col-sm-3">
                                     PRODUCT NO
                                     <input id="othertext1" class="form-control"  type="text" ng-model="grn.productNo" ng-disabled="mode === 'IDEAL'">
                                 </th>
-                                <th class="col-sm-2">  
+                                <th class="col-sm-3">  
                                     MODEL NO
                                     <input id="othertext1" class="form-control" ng-model="grn.modelNo" ng-disabled="mode === 'IDEAL'">
                                 </th>
@@ -97,26 +97,17 @@
                                     <input id="othertext1"  class="form-control"  type="text" ng-model="grn.description" ng-disabled="mode === 'IDEAL'">
                                 </th>
                                 <th class="col-sm-3">  
-                                    UNIT PRICE
-                                </th>
-                                <th class="col-sm-1">  
                                     REC QTY
                                     <input id="othertext1" class="form-control"  type="text" ng-model="grn.recQty" ng-disabled="mode === 'IDEAL'">
                                 </th>
-                                <th class="col-sm-1">  
-                                    VALUE(LKR)
-                                </th>
-
                             </tr>
                         </thead>
                         <tbody>
                             <tr ng-repeat="product in grn.products">
-                                <td class="col-sm-2">{{product.productNo}}</td>
-                                <td class="col-sm-2">{{product.modelNo}}</td>
+                                <td class="col-sm-3">{{product.productNo}}</td>
+                                <td class="col-sm-3">{{product.modelNo}}</td>
                                 <td class="col-sm-3">{{product.description}}</td>
-                                <td class="col-sm-2">{{product.unitPrice}}</td>
-                                <td class="col-sm-1">{{product.recQty}}</td>
-                                <td class="col-sm-1">{{product.value}}</td>
+                                <td class="col-sm-3">{{product.recQty}}</td>
 
                             </tr>    
                         </tbody>
