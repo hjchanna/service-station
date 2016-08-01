@@ -115,10 +115,10 @@
                                 <div class="col-sm-8">
                                     <div class="input-group">                                  
                                         <input type="text" class="form-control" id="name" ng-model="job.customer.name" uib-typeahead="customer.name for customer in getCustomers($viewValue) | filter:$viewValue | limitTo:8" typeahead-on-select="setCustomer($item)" ng-disabled="mode === 'IDEAL'">                            
-                                        <div class="btn btn-default input-group-addon" data-toggle="modal" data-target="#customerSearchModel">
+                                        <div class="btn btn-default input-group-addon" data-toggle="modal" ng-disabled="mode === 'IDEAL'" data-target="#customerSearchModel">
                                             <span class="fa fa-search"></span>
                                         </div>
-                                        <div class="btn btn-default input-group-addon" data-toggle="modal" data-target="#newCustomerModal">
+                                        <div class="btn btn-default input-group-addon" data-toggle="modal" ng-disabled="mode === 'IDEAL'" data-target="#newCustomerModal">
                                             <span class="fa fa-plus"></span>
                                         </div>
                                     </div>
@@ -225,14 +225,14 @@
                                                 NIC NO.
                                                 <input id="othertext1" placeholder="NIC" class="form-control" ng-model="search.customer.nic" type="text">
                                             </th>
-                                            <th class="col-sm-3">
-                                                ADDRESS:
-                                                <input id="othertext1" placeholder="ADDRESS" class="form-control" ng-model="search.customer.address" type="text">
-                                            </th>
 
                                             <th class="col-sm-3">
                                                 TELEPHONE NO.
                                                 <input id="othertext1" placeholder="Tel No" class="form-control" ng-model="search.customer.mobile" type="text">
+                                            </th>
+                                            <th class="col-sm-3">
+                                                ADDRESS:
+                                                <input id="othertext1" placeholder="ADDRESS" class="form-control" ng-model="search.customer.address" type="text">
                                             </th>
                                         </tr>
                                     </thead>
@@ -240,8 +240,8 @@
                                         <tr ng-repeat="customer in getCustomers(null)| filter:search.customer" ng-click="doSelectCustomer(customer)" data-dismiss="modal">
                                             <td class="col-sm-3">{{customer.name}}</td>
                                             <td class="col-sm-3">{{customer.nic}}</td>
-                                            <td class="col-sm-3">{{customer.address}}</td>
                                             <td class="col-sm-3">{{customer.mobile}}</td>
+                                            <td class="col-sm-3">{{customer.address}}</td>
                                         </tr>    
                                     </tbody>
                                 </table>
@@ -276,45 +276,45 @@
                                                         <div class="form-group">
                                                             <label class="control-label col-sm-4" for="pro-no">CUST NO.:</label>
                                                             <div class="col-sm-8">
-                                                                <input type="text" id="pro-no" class="form-control" ng-model="customer.indexNo" ng-disabled="true" value="1" uib-typeahead="customer.indexNo for customer in getCustomers($viewValue) | filter:$viewValue | limitTo:1" typeahead-on-select="setCustomer($item)">
+                                                                <input type="text" id="pro-no" class="form-control" ng-model="newCustomer.indexNo" ng-disabled="true" value="1" uib-typeahead="customer.indexNo for customer in getCustomers($viewValue) | filter:$viewValue | limitTo:1" typeahead-on-select="setCustomer($item)">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <label class="control-label col-sm-4" for="model-no">NIC NO.:</label>
                                                             <div class="col-sm-8"> 
-                                                                <input type="text" class="form-control"  id="model-no" ng-model="customer.nic" ng-disabled="false">
+                                                                <input type="text" class="form-control"  id="model-no" ng-model="newCustomer.nic" ng-disabled="false">
                                                             </div>
                                                         </div>
 
                                                         <div class="form-group">
                                                             <label class="control-label col-sm-4" for="name">NAME:</label>
                                                             <div class="col-sm-8"> 
-                                                                <input type="text" class="form-control" id="name" ng-model="customer.name" ng-disabled="false">                                
+                                                                <input type="text" class="form-control" id="name" ng-model="newCustomer.name" ng-disabled="false">                                
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <label class="control-label col-sm-4" for="mobile">MOBILE:</label>
                                                             <div class="col-sm-8"> 
-                                                                <input type="number" class="form-control" id="mobile" ng-model="customer.mobile" ng-disabled="false">                                
+                                                                <input type="number" class="form-control" id="mobile" ng-model="newCustomer.mobile" ng-disabled="false">                                
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <label class="control-label col-sm-4" for="city">CITY:</label>
                                                             <div class="col-sm-8"> 
-                                                                <input type="text" class="form-control" id="city" ng-model="customer.city" ng-disabled="false">                                
+                                                                <input type="text" class="form-control" id="city" ng-model="newCustomer.city" ng-disabled="false">                                
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <label class="control-label col-sm-4" for="address">ADDRESS:</label>
                                                             <div class="col-sm-8"> 
-                                                                <textarea name="" rows="3" cols="20"  id="address" class="form-control" ng-model="customer.address" style="height: 84px;" ng-disabled="false">
+                                                                <textarea name="" rows="3" cols="20"  id="address" class="form-control" ng-model="newCustomer.address" style="height: 84px;" ng-disabled="false">
                                                                 </textarea>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <label class="control-label col-sm-4" for="email">EMAIL:</label>
                                                             <div class="col-sm-8"> 
-                                                                <input type="email" class="form-control" id="email" ng-model="customer.email" ng-disabled="false">                                
+                                                                <input type="email" class="form-control" id="email" ng-model="newCustomer.email" ng-disabled="false">                                
                                                             </div>
                                                         </div>
 
@@ -324,14 +324,15 @@
                                                             <div class="form-group">
                                                                 <label class="control-label col-sm-4" for="credit">CDT LIMIT:</label>
                                                                 <div class="col-sm-8 no-padding"> 
-                                                                    <!--<label class="control-label col-sm-3" >AMOUNT</label>-->
-                                                                    <div class="col-sm-6">
-                                                                        <input type="number" id="credit"  value="" placeholder="Amount" ng-model="customer.creditLimitAmount" class="form-control" ng-disabled="false">
+                                                                    <div class="col-sm-12">
+                                                                        <input type="number" id="credit"  value="" placeholder="Amount" ng-model="newCustomer.creditLimitAmount" class="form-control" ng-disabled="false">
                                                                     </div>
-                                                                    <!--<label class="control-label col-sm-3" >DAYS</label>-->
-                                                                    <div class="col-sm-6">
-                                                                        <input type="number" name="" value=""  placeholder="Days" ng-model="customer.creditLimitDays" class="form-control" ng-disabled="false">
-                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="control-label col-sm-4" for="telephone">CDT LIMIT:</label>
+                                                                <div class="col-sm-8">
+                                                                    <input type="number"  placeholder="Days" ng-model="newCustomer.creditLimitDays" class="form-control" ng-disabled="false">
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
@@ -339,9 +340,9 @@
                                                                 <div class="col-sm-8">
                                                                     <div class="input-group">
                                                                         <span class="input-group-addon">
-                                                                            <input type="checkbox" name="" id="black-list" value="ON" ng-model="customer.blacklist" ng-disabled="false">
+                                                                            <input type="checkbox" name="" id="black-list" value="ON" ng-model="newCustomer.blacklist" ng-disabled="false">
                                                                         </span>
-                                                                        <input type="text" class="form-control" ng-model="customer.blacklistReason"  ng-disabled="false">
+                                                                        <input type="text" class="form-control" ng-model="newCustomer.blacklistReason"  ng-disabled="false">
                                                                     </div>
                                                                 </div>
 
@@ -349,23 +350,23 @@
                                                             <div class="form-group">
                                                                 <label class="control-label col-sm-4" for="telephone">TELEPHONE:</label>
                                                                 <div class="col-sm-8"> 
-                                                                    <input type="number" class="form-control" ng-model="customer.telephone1" id="telephone" ng-disabled="false">                                
+                                                                    <input type="number" class="form-control" ng-model="newCustomer.telephone1" id="telephone" ng-disabled="false">                                
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
                                                                 <div class="col-sm-offset-4 col-sm-8"> 
-                                                                    <input type="number" class="form-control" ng-model="customer.telephone2" ng-disabled="false" >                                
+                                                                    <input type="number" class="form-control" ng-model="newCustomer.telephone2" ng-disabled="false" >                                
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
                                                                 <div class="col-sm-offset-4 col-sm-8"> 
-                                                                    <input type="number" class="form-control" ng-model="customer.telephone3" ng-disabled="false" >                                
+                                                                    <input type="number" class="form-control" ng-model="newCustomer.telephone3" ng-disabled="false" >                                
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
                                                                 <label class="control-label col-sm-4" for="fax">FAX:</label>
                                                                 <div class="col-sm-8"> 
-                                                                    <input type="number" class="form-control" id="fax" ng-model="customer.fax" ng-disabled="false">  
+                                                                    <input type="number" class="form-control" id="fax" ng-model="newCustomer.fax" ng-disabled="false">  
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
@@ -373,7 +374,7 @@
                                                                 <div class="col-sm-8"> 
                                                                     <div class="checkbox">
                                                                         <label for="cash-customer">
-                                                                            <input type="checkbox" id="cash-customer" value="ON" ng-model="customer.cashCustomer" ng-disabled="false"/>
+                                                                            <input type="checkbox" id="cash-customer" value="ON" ng-model="newCustomer.cashCustomer" ng-disabled="false"/>
                                                                             Cash Customer
                                                                         </label>
                                                                     </div>
@@ -384,8 +385,8 @@
                                                 </div>
                                             </div>
                                             <div class="box-footer">
-                                                <button class="btn btn-flat btn-default" ng-show="true" ng-click="" data-dismiss=""><i class="fa fa-plus"></i> NEW</button>
-                                                <button class="btn btn-flat btn-primary" ng-show="true" ng-click="" data-dismiss="modal"><i class="fa fa-edit"></i> SAVE</button>
+                                                <button class="btn btn-flat btn-default" ng-show="true" ng-click="doRefersh()" data-dismiss=""><i class="fa fa-plus"></i> NEW</button>
+                                                <button class="btn btn-flat btn-primary" ng-show="true" ng-click="doNewCustomer()" data-dismiss="modal"><i class="fa fa-edit"></i> SAVE</button>
                                             </div>
                                         </div>
                                     </div>

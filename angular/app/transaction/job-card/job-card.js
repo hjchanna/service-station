@@ -5,6 +5,8 @@
         //variables
         $scope.mode = "IDEAL";//IDEAL, NEW, EDIT
         $scope.job = "";
+        $scope.newCustomer="";
+        $scope.newCustomer.indexNo="1";
         
         //temp
         $scope.customers = null;
@@ -41,15 +43,24 @@
             $scope.setMode('IDEAL');
 
             $scope.doClear();
+            $scope.doRefersh();
         };
 
         $scope.doClear = function () {
             $scope.job = null;
         };
+        $scope.doNewCustomer = function () {
+            $scope.job.customer=$scope.newCustomer;
+        };
         
         $scope.doSelectCustomer = function(customer){
-            $scope.job.customer = customer;
+            $scope.job.customer=customer;
             console.log("customer selected");
+        };
+        $scope.doRefersh = function(){
+            $scope.newCustomer={};
+            $scope.newCustomer.indexNo=$scope.getNextCustomerNumber(); 
+            
         };
 
         //other functions
@@ -79,6 +90,9 @@
         //$http
 
         $scope.getNextJobNumber = function () {
+            return "1";
+        };
+        $scope.getNextCustomerNumber = function () {
             return "1";
         };
 
@@ -169,7 +183,8 @@
 
         $scope.getCustomers = function (name) {
             if(!$scope.customers){
-                $scope.customers = [{
+                $scope.customers = [
+                    {
                     "indexNo": "1",
                     "name": "Channa Mohan",
                     "address": "#87,\nOld Galle Rd.,\nWalana,\nPanadura.",
@@ -179,7 +194,19 @@
                     "birthday": "1991-02-01",
                     "telephone": "0386692254",
                     "email": "hjchanna@gmail.com"
-                }];
+                },
+                    {
+                    "indexNo": "2",
+                    "name": "Kasun Chamara",
+                    "address": "#38,\nMudungama.,\nSiripura,\nPolonnaruwa.",
+                    "nic": "2424235V",
+                    "mobile": "0703333681",
+                    "fax": "0998232345",
+                    "birthday": "1993-02-01",
+                    "telephone": "01127474678",
+                    "email": "chamara.kaza@gmail.com"
+                }
+            ];
             }
             
             return $scope.customers;
