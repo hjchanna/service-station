@@ -105,6 +105,16 @@
                     controller: "userPrivilegesController",
                     templateUrl: "app/master-data/user-privileges/user-privileges.html"
                 })
+                
+                .when("/voucher", {
+                    controller: "voucherController",
+                    templateUrl: "app/accounts/voucher/voucher.html"
+                })
+                
+                .when("/journal", {
+                    controller: "journalController",
+                    templateUrl: "app/accounts/journal/journal.html"
+                })
 
                 .otherwise({redirectTo: "/"});
     });
