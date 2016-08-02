@@ -21,19 +21,22 @@
                         <div class="form-group">
                             <label class="control-label col-sm-4">JOB NO :</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control input-sm">
+                                <input list="jobNo" type="text" class="form-control input-sm" ng-model="service.jobNo" uib-typeahead="service.jobNo for service in getJobs($viewValue) | filter:$viewValue | limitTo:8"  typeahead-on-select="setJob($item)"  ng-disabled="mode !== 'IDEAL'">
+                                <datalist id="jobNo" ng-repeat="job in getJobs('')">
+                                    <option value="{{job.jobNo}}">
+                                </datalist>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-4">VEHICLE NO :</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control input-sm">
+                                <input type="text" class="form-control input-sm" ng-model="service.vehicle.vehicleNo" ng-disabled="mode !== 'IDEAL'">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-4">JOB DATE :</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control input-sm">
+                                <input type="text" class="form-control input-sm" ng-model="service.jobDate" ng-disabled="mode === 'IDEAL'">
                             </div>
                         </div>
                     </div>
@@ -43,26 +46,26 @@
         <div class="col-sm-4">
             <div class="box box-default" style="height: 160px">
                 <div class="box-header">
-                    <i class="fa fa-user"></i> <h4 class="box-title">Kasun chamara</h4>
+                    <i class="fa fa-user"></i> <h4 class="box-title" ng-model="service.customer.name">{{service.customer.name}}</h4>
                 </div>
                 <div class="box-body" style="padding: 0">
                     <div class="form-horizontal">
                         <div class="form-group">
                             <label class="control-label col-sm-4">TEL NO :</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control input-sm" >
+                                <input type="text" class="form-control input-sm" ng-model="service.customer.mobile" ng-disabled="mode === 'IDEAL'">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-4">IN MILAGE :</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control input-sm">
+                                <input type="text" class="form-control input-sm" ng-model="service.vehicle.inMilage" ng-disabled="mode === 'IDEAL'">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-4">NEXT :</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control input-sm">
+                                <input type="text" class="form-control input-sm" ng-model="service.vehicle.next"   ng-disabled="mode === 'IDEAL'">
                             </div>
                         </div>           
                     </div>
@@ -82,13 +85,13 @@
                         <div class="form-group">
                             <label class="control-label col-sm-4">INVOICE NO :</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control input-sm" >
+                                <input type="text" class="form-control input-sm" ng-model="service.invoiceNo" uib-typeahead="service.invoiceNo for service in getInvoice($viewValue) | filter:$viewValue | limitTo:8" typeahead-on-select="setInvoice($item)" >
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-4">DATE :</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control input-sm">
+                                <input type="text" class="form-control input-sm" ng-model="service.Date" ng-disabled="mode === 'IDEAL'">
                             </div>
                         </div>       
                     </div>
@@ -101,32 +104,32 @@
         <div class="col-sm-8">
             <div class="box box-default">
                 <div class="box-body">
-                    <table class="table table-hover table-fixed">
+                    <table class="table table-hover table-bordered table-fixed">
                         <thead class="btn-default">
                             <tr>
                                 <th class="col-sm-2">
                                     PRODUCT NO
-                                    <input id="othertext1" class="form-control input-sm"  type="text">
+                                    <input id="othertext1" class="form-control input-sm"  type="text" ng-disabled="mode === 'IDEAL'" ng-keypress="checkEnter($event)" ng-model="tempProduct.productNo" uib-typeahead="tempProduct.productNo for tempProduct in getProducts($viewValue) | filter:$viewValue | limitTo:8" typeahead-on-select="setProducts($item)">
                                 </th>
                                 <th class="col-sm-2">  
                                     MODEL NO
-                                    <input id="othertext1" class="form-control input-sm"  type="text">
+                                    <input id="othertext1" class="form-control input-sm"  type="text" ng-disabled="mode === 'IDEAL'" ng-keypress="checkEnter($event)" ng-model="tempProduct.modelNo">
                                 </th>
                                 <th class="col-sm-3">   
                                     DESCRIPTION
-                                    <input id="othertext1" class="form-control input-sm"  type="text">
+                                    <input id="othertext1" class="form-control input-sm"  type="text" ng-disabled="mode === 'IDEAL'"  ng-model="tempProduct.description">
                                 </th>
                                 <th class="col-sm-1">      
                                     UNIT
-                                    <input id="othertext1" class="form-control input-sm"  type="text">
+                                    <input id="othertext1" class="form-control input-sm"  type="text" ng-disabled="mode === 'IDEAL'"  ng-model="tempProduct.unit">
                                 </th>
                                 <th class="col-sm-2">  
                                     UNIT PRICE
-                                    <input id="othertext1" class="form-control input-sm"  type="text">
+                                    <input id="othertext1" class="form-control input-sm"  type="text" ng-disabled="mode === 'IDEAL'"  ng-model="tempProduct.unitPrice">
                                 </th>
                                 <th class="col-sm-1">  
                                     QTY
-                                    <input id="othertext1" class="form-control input-sm"  type="text">
+                                    <input id="othertext1" class="form-control input-sm"  type="text" ng-disabled="mode === 'IDEAL'" ng-keypress="checkEnter($event)" ng-model="tempProduct.qty">
                                 </th>
                                 <th class="col-sm-1">  
                                     VALUE<br>(LKR)
@@ -135,15 +138,15 @@
                             </tr>
                         </thead>
                         <tbody  style="height: 150px">
-                            <tr>
-                                <td class="col-sm-2"></td>
-                                <td class="col-sm-2"></td>
-                                <td class="col-sm-3"></td>
-                                <td class="col-sm-1"></td>
-                                <td class="col-sm-2"></td>
-                                <td class="col-sm-1"></td>
-                                <td class="col-sm-1"></td>
-                            </tr>    
+                            <tr ng-repeat="product in service.products">
+                                <td class="col-sm-2" >{{product.productNo}}</td>
+                                <td class="col-sm-2" >{{product.modelNo}}</td>
+                                <td class="col-sm-3" >{{product.description}}</td>
+                                <td class="col-sm-1" >{{product.unit}}</td>
+                                <td class="col-sm-2" >{{product.unitPrice}}</td>
+                                <td class="col-sm-1" >{{product.qty}}</td>
+                                <td class="col-sm-1" >{{product.value}}</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -214,11 +217,11 @@
                             </tr>
                         </thead>
                         <tbody style="height: 100px">
-                            <tr ng-repeat="">
-                                <td class="col-sm-2">S433</td>
-                                <td class="col-sm-2">gdgf</td>
-                                <td class="col-sm-3">122</td>
-                                <td class="col-sm-1">655</td>
+                            <tr>
+                                <td class="col-sm-3">S433</td>
+                                <td class="col-sm-4">gdgf</td>
+                                <td class="col-sm-2">122</td>
+                                <td class="col-sm-3">655</td>
                             </tr>    
                         </tbody>
                     </table>
@@ -239,8 +242,8 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="col-sm-6"><input type="button" class="btn btn-primary" value="RS: 2000"></td>
-                                <td class="col-sm-6"><input type="button" class="btn btn-primary" value="ADD"></td>
+                                <td class="col-sm-6"><input type="button" class="btn btn-flat btn-default col-sm-8" value="RS: 2000"></td>
+                                <td class="col-sm-6"><input type="button" class="btn btn-flat btn-primary col-sm-8" value="ADD" data-toggle="modal" data-target="#employeeDetaillModel"></td>
                             </tr>    
                         </tbody>
                     </table>
@@ -261,32 +264,38 @@
                         <div class="modal-body no-padding">
                             <div class="box box-default">
                                 <div class="box-header">
+
                                 </div>
                                 <div class="box-body">
                                     <div class="form-horizontal">
                                         <div class="form-group">
-                                            <label class="control-label col-sm-4">TEL NO :</label>
-                                            <div class="col-sm-7">
+                                            <label class="control-label col-sm-4" >INVOICE DATE :</label>
+                                            <div class="col-sm-7"> 
+                                                <input type="date" class="form-control" ng-model="service.invoiceDate">
+                                            </div>
 
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-4">INVOICE AMOUNT :</label>
+                                            <div class="col-sm-7">
+                                                <input type="text" class="form-control" ng-disabled="">
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-sm-4">IN MILAGE :</label>
+                                            <label class="control-label col-sm-4">PAID AMOUNT :</label>
                                             <div class="col-sm-7">
-
+                                                <input type="text" class="form-control" ng-disabled="">
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-sm-4">NEXT :</label>
+                                            <label class="control-label col-sm-4">BALANCE AMOUNT :</label>
                                             <div class="col-sm-7">
-
+                                                <input type="text" class="form-control" ng-disabled="">
                                             </div>
                                         </div>           
                                     </div>
                                 </div>
                             </div>
-
-
 
                             <div class="col-sm-12">
                                 <div class="box box-default">
@@ -428,6 +437,46 @@
 
                         <div class="modal-footer">
 
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--model-->
+            <div class="modal fade" id="employeeDetaillModel" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">EMPLOYEE DETAILS</h4>
+                        </div>
+
+                        <div class="modal-body no-padding">
+                            <table class="table table-hover table-fixed">
+                                <thead class="btn-default">
+                                    <tr>
+                                        <th class="col-sm-4">
+                                            EMPLOYEE NO 
+                                            <input id="othertext1" class="form-control"  type="text">
+                                        </th>
+                                        <th class="col-sm-8">
+                                            EMPLOYEE NAME
+                                            <input id="othertext1" class="form-control"  type="text">
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr >
+                                        <td class="col-sm-4">S0002</td>
+                                        <td class="col-sm-8">Kasun Chamara</td>
+                                    </tr>  
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>
