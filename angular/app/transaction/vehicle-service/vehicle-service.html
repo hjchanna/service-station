@@ -82,13 +82,13 @@
                         <div class="form-group">
                             <label class="control-label col-sm-4">INVOICE NO :</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control input-sm" >
+                                <input type="text" class="form-control input-sm" ng-model="service.invoiceNo" uib-typeahead="service.invoiceNo for service in getInvoice($viewValue) | filter:$viewValue | limitTo:8" typeahead-on-select="setInvoice($item)" >
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-4">DATE :</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control input-sm" ng-disabled="mode === 'IDEAL'">
+                                <input type="text" class="form-control input-sm" ng-model="service.Date" ng-disabled="mode === 'IDEAL'">
                             </div>
                         </div>       
                     </div>
@@ -106,27 +106,27 @@
                             <tr>
                                 <th class="col-sm-2">
                                     PRODUCT NO
-                                    <input id="othertext1" class="form-control input-sm"  type="text" ng-disabled="mode === 'IDEAL'">
+                                    <input id="othertext1" class="form-control input-sm"  type="text" ng-disabled="mode === 'IDEAL'" ng-keypress="checkEnter($event)" ng-model="tempProduct.productNo" uib-typeahead="tempProduct.productNo for tempProduct in getProducts($viewValue) | filter:$viewValue | limitTo:8" typeahead-on-select="setProducts($item)">
                                 </th>
                                 <th class="col-sm-2">  
                                     MODEL NO
-                                    <input id="othertext1" class="form-control input-sm"  type="text" ng-disabled="mode === 'IDEAL'">
+                                    <input id="othertext1" class="form-control input-sm"  type="text" ng-disabled="mode === 'IDEAL'" ng-keypress="checkEnter($event)" ng-model="tempProduct.modelNo">
                                 </th>
                                 <th class="col-sm-3">   
                                     DESCRIPTION
-                                    <input id="othertext1" class="form-control input-sm"  type="text" ng-disabled="mode === 'IDEAL'">
+                                    <input id="othertext1" class="form-control input-sm"  type="text" ng-disabled="mode === 'IDEAL'"  ng-model="tempProduct.description">
                                 </th>
                                 <th class="col-sm-1">      
                                     UNIT
-                                    <input id="othertext1" class="form-control input-sm"  type="text" ng-disabled="mode === 'IDEAL'">
+                                    <input id="othertext1" class="form-control input-sm"  type="text" ng-disabled="mode === 'IDEAL'"  ng-model="tempProduct.unit">
                                 </th>
                                 <th class="col-sm-2">  
                                     UNIT PRICE
-                                    <input id="othertext1" class="form-control input-sm"  type="text" ng-disabled="mode === 'IDEAL'">
+                                    <input id="othertext1" class="form-control input-sm"  type="text" ng-disabled="mode === 'IDEAL'"  ng-model="tempProduct.unitPrice">
                                 </th>
                                 <th class="col-sm-1">  
                                     QTY
-                                    <input id="othertext1" class="form-control input-sm"  type="text" ng-disabled="mode === 'IDEAL'">
+                                    <input id="othertext1" class="form-control input-sm"  type="text" ng-disabled="mode === 'IDEAL'" ng-keypress="checkEnter($event)" ng-model="tempProduct.qty">
                                 </th>
                                 <th class="col-sm-1">  
                                     VALUE<br>(LKR)
@@ -135,15 +135,15 @@
                             </tr>
                         </thead>
                         <tbody  style="height: 150px">
-                            <tr>
-                                <td class="col-sm-2"></td>
-                                <td class="col-sm-2"></td>
-                                <td class="col-sm-3"></td>
-                                <td class="col-sm-1"></td>
-                                <td class="col-sm-2"></td>
-                                <td class="col-sm-1"></td>
-                                <td class="col-sm-1"></td>
-                            </tr>    
+                           <tr ng-repeat="product in service.products">
+                                <td class="col-sm-2">{{product.productNo}}</td>
+                                <td class="col-sm-2">{{product.modelNo}}</td>
+                                <td class="col-sm-3">{{product.description}}</td>
+                                <td class="col-sm-1">{{product.unit}}</td>
+                                <td class="col-sm-2">{{product.unitPrice}}</td>
+                                <td class="col-sm-1">{{product.qty}}</td>
+                                <td class="col-sm-1">{{product.value}}</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -215,10 +215,10 @@
                         </thead>
                         <tbody style="height: 100px">
                             <tr>
-                                <td class="col-sm-2">S433</td>
-                                <td class="col-sm-2">gdgf</td>
-                                <td class="col-sm-3">122</td>
-                                <td class="col-sm-1">655</td>
+                                <td class="col-sm-3">S433</td>
+                                <td class="col-sm-4">gdgf</td>
+                                <td class="col-sm-2">122</td>
+                                <td class="col-sm-3">655</td>
                             </tr>    
                         </tbody>
                     </table>
@@ -266,9 +266,9 @@
                                 <div class="box-body">
                                     <div class="form-horizontal">
                                         <div class="form-group">
-                                            <label class="control-label col-sm-4">INVOICE DATE :</label>
+                                            <label class="control-label col-sm-4" >INVOICE DATE :</label>
                                             <div class="col-sm-7"> 
-                                                <input type="date" class="form-control">
+                                                <input type="date" class="form-control" ng-model="service.invoiceDate">
                                             </div>
 
                                         </div>
