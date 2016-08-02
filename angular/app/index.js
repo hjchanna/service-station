@@ -21,7 +21,10 @@
                 "branchRegistrationModule",
                 "userPrivilegesModule",
                 //dashboards
-                "copModule"
+                "copModule",
+                //account
+//                "voucherModule",
+                
             ]);
     //controller
     var indexController = function ($scope) {
