@@ -21,13 +21,12 @@
                         <div class="col-sm-6">
                             <div class="form-horizontal">
                                 <div class="form-group">
-                                    <div class="col-sm-12">
-
-                                        <label class="control-label col-sm-5">PRODUCT NO.:</label>
+                                    <label class="control-label col-sm-5">PRODUCT NO.:</label>
+                                    <div class="col-sm-7">
                                         <div class="input-group">
                                             <input type="text" id="pro-no" class="form-control" >
                                             <span class="input-group-btn">
-                                                <button class="btn btn-default btn-flat" type="button" data-toggle="modal" data-target="#customerSearchModel"><i class="fa fa-search"></i></button>
+                                                <button class="btn btn-default btn-flat" type="button" data-toggle="modal" data-target="#productSearch"><i class="fa fa-search"></i></button>
                                             </span>
                                         </div>
                                     </div>
@@ -92,6 +91,70 @@
                     <button class="btn btn-flat btn-default" ng-show="mode === 'IDEAL'" ng-click="doPrint();"><i class="fa fa-print"></i> PRINT</button>
 
                 </div>
+                <!-- Modal -->
+            <div class="modal fade" id="productSearch" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Product Search</h4>
+                        </div>
+
+                        <div class="modal-body no-padding">
+                            <table class="table table-hover table-fixed">
+                                <thead class="btn-default">
+                                    <tr>
+                                        <th class="col-sm-2">
+                                            CATEGORY
+                                            <input id="othertext1" placeholder="" class="form-control" ng-model="invoice.product.modelNo" type="text">
+                                        </th>
+
+                                        <th class="col-sm-2">
+                                            BRAND
+                                            <input id="othertext1" placeholder="" class="form-control" ng-model="invoice.product.productNo" type="text">
+                                        </th>
+
+                                        <th class="col-sm-3">
+                                            DESCRIPTION
+                                            <input id="othertext1" placeholder="" class="form-control" ng-model="invoice.product.description" type="text">
+                                        </th>
+                                        <th class="col-sm-2">MODEL</th>
+                                        <th class="col-sm-2">PRICE</th>
+                                        <th class="col-sm-1">QTY</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="">
+                                        <td class="col-sm-2">
+                                           
+                                        </td>
+                                        <td class="col-sm-2">
+                                            
+                                        </td>
+                                        <td class="col-sm-3">
+                                           
+                                        </td>
+                                        <td class="col-sm-2">
+                                            
+                                        </td>
+                                        <td class="col-sm-2">
+                                            
+                                        </td>
+                                        <td class="col-sm-1">
+                                            
+                                        </td>
+                                    </tr>    
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             </div>
         </div>
     </div>
