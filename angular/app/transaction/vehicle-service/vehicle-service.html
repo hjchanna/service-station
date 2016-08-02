@@ -11,29 +11,6 @@
 
 <section class="content">
     <div class="row">
-        <div class="col-sm-4"> 
-            <div class="box box-default" style="height: 160px">
-                <div class="box-header">
-                    <i class="fa fa-list"></i> <h4 class="box-title">INVOICE DETAILS</h4>
-                </div>
-                <div class="box-body" style="padding: 0">
-                    <div class="form-horizontal">
-                        <div class="form-group">
-                            <label class="control-label col-sm-4">INVOICE NO :</label>
-                            <div class="col-sm-7">
-                                <input type="text" class="form-control input-sm" >
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-4">DATE :</label>
-                            <div class="col-sm-7">
-                                <input type="text" class="form-control input-sm">
-                            </div>
-                        </div>       
-                    </div>
-                </div>
-            </div>
-        </div>  
         <div class="col-sm-4">
             <div class="box box-default" style="height: 160px">
                 <div class="box-header">
@@ -63,7 +40,6 @@
                 </div>
             </div>
         </div>
-
         <div class="col-sm-4">
             <div class="box box-default" style="height: 160px">
                 <div class="box-header">
@@ -93,6 +69,32 @@
                 </div>
             </div>
         </div>
+
+
+
+        <div class="col-sm-4"> 
+            <div class="box box-default" style="height: 160px">
+                <div class="box-header">
+                    <i class="fa fa-list"></i> <h4 class="box-title">INVOICE DETAILS</h4>
+                </div>
+                <div class="box-body" style="padding: 0">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label col-sm-4">INVOICE NO :</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control input-sm" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-4">DATE :</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control input-sm">
+                            </div>
+                        </div>       
+                    </div>
+                </div>
+            </div>
+        </div>  
     </div>
 
     <div class="row">    
@@ -153,7 +155,7 @@
                         <button class="btn btn-flat btn-default" ng-show="mode === 'IDEAL'" ng-click="doEdit();"><i class="fa fa-edit"></i> EDIT</button>
                         <button class="btn btn-flat btn-default" ng-show="mode === 'IDEAL'" ng-click="doDelete();"><i class="fa fa-trash"></i> DELETE</button>
 
-                        <button class="btn btn-flat btn-primary" ng-hide="mode === 'IDEAL'" ng-click="doSave();"><i class="fa fa-save"></i>GENERATE</button>
+                        <button class="btn btn-flat btn-primary" ng-hide="mode === 'IDEAL'" ng-click="doSave();" data-toggle="modal" data-target="#generateInvoice"><i class="fa fa-save"></i>GENERATE</button>
                         <button class="btn btn-flat btn-default" ng-hide="mode === 'IDEAL'" ng-click="doDiscard();"><i class="fa fa-close"></i> DISCARD</button>
                         <button class="btn btn-flat btn-default" ng-hide="mode === 'IDEAL'" ng-click="doClear();"><i class="fa fa-retweet"></i> CLEAR</button>
 
@@ -222,34 +224,23 @@
                     </table>
                 </div>
             </div>
-            <div class="box box-default">
-                <div class="box-header">
-                    <i class="fa fa-list"></i> <h4 class="box-title">CUSTOMER TOTAL OUTSTANDING</h4>
-                </div>
+            <div class="box box-default" style="height: 138px;">
                 <div class="box-body">
                     <table class="table table-hover table-fixed table-bordered">
                         <thead class="btn-default">
                             <tr>
-                                <th class="col-sm-3">
-                                    INV NO   
+                                <th class="col-sm-6">
+                                    CUSTOMER TOTAL OUTSTANDING
                                 </th>
-                                <th class="col-sm-3">
-                                    DATE
-                                </th>
-                                <th class="col-sm-3">
-                                    VEH NO
-                                </th>
-                                <th class="col-sm-3">
-                                    AMOUNT
+                                <th class="col-sm-6">
+                                    ADD EMPLOYEE
                                 </th>
                             </tr>
                         </thead>
-                        <tbody style="height: 100px">
-                            <tr ng-repeat="">
-                                <td class="col-sm-2">S433</td>
-                                <td class="col-sm-2">gdgf</td>
-                                <td class="col-sm-3">122</td>
-                                <td class="col-sm-1">655</td>
+                        <tbody>
+                            <tr>
+                                <td class="col-sm-6"><input type="button" class="btn btn-primary" value="RS: 2000"></td>
+                                <td class="col-sm-6"><input type="button" class="btn btn-primary" value="ADD"></td>
                             </tr>    
                         </tbody>
                     </table>
@@ -258,62 +249,189 @@
 
 
             <!-- Modal -->
-            <div class="modal fade" id="customerSearchModel" role="dialog">
+            <div class="modal fade" id="generateInvoice" role="dialog">
                 <div class="modal-dialog">
                     <!-- Modal content-->
                     <div class="modal-content">
-                        <div class="modal-header">
+                        <div class="modal-header">    
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Advance Search</h4>
+                            <h4 class="modal-title">PAYMENT DETAILS</h4>
                         </div>
 
                         <div class="modal-body no-padding">
-                            <table class="table table-hover table-fixed">
-                                <thead class="btn-default">
-                                    <tr>
-                                        
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr >
-                                        <td class="col-sm-6"></td>
-                                        <td class="col-sm-3"></td>
-                                        <td class="col-sm-3"></td>
-                                    </tr>    
-                                </tbody>
-                            </table>
+                            <div class="box box-default">
+                                <div class="box-header">
+                                </div>
+                                <div class="box-body">
+                                    <div class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-4">TEL NO :</label>
+                                            <div class="col-sm-7">
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-4">IN MILAGE :</label>
+                                            <div class="col-sm-7">
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-4">NEXT :</label>
+                                            <div class="col-sm-7">
+
+                                            </div>
+                                        </div>           
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-sm-12">
+                                <div class="box box-default">
+                                    <div class="box-header">
+                                        <i class="fa fa-money"></i> <h4 class="box-title">CASH</h4>
+                                        <div class="form-horizontal">
+                                            <div class="col-sm-4">
+                                                <div class="form-group col-sm-12">
+                                                    <label class="control-label" >AMOUNT :</label>
+                                                    <input type="number" class="form-control"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="box box-default">
+                                    <div class="box-header">
+                                        <i class="fa fa-cc-mastercard"></i> <h4 class="box-title">CARDS</h4>
+                                        <div class="pull-right">
+                                            RS:12000.00
+                                        </div>
+                                    </div>
+                                    <div class="box-body">
+                                        <div class="form-horizontal">
+                                            <div class="col-sm-4">
+                                                <div class="form-group col-sm-12">
+                                                    <label class="control-label" >CARD NO.:</label>
+                                                    <input type="number" class="form-control"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4 no-margin no-padding">
+                                                <div class="form-group col-sm-12 ">
+                                                    <label class="control-label" >TYPE:</label>
+                                                    <select class="form-control">
+                                                        <option>MASTER</option>
+                                                        <option>VISA</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group col-sm-12">
+                                                    <label class="control-label" >AMOUNT:</label>
+                                                    <input type="number" class="form-control"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <div class="form-group col-sm-12">
+                                                    <label class="control-label" ></label>                                                        
+                                                    <button class="btn btn-default btn-flat" style="margin-top: 6px">+</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <table class="table table-responsive table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>CARD NO</th>
+                                                        <th>TYPE</th>
+                                                        <th>AMOUNT</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>347888345476</td>
+                                                        <td>VISA</td>
+                                                        <td>12000.00</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="box box-default">
+                                    <div class="box-header">
+                                        <i class="fa fa-file"></i> <h4 class="box-title">CHEQUES</h4>
+                                        <div class="pull-right">
+                                            RS:12000.00
+                                        </div>
+                                    </div>
+                                    <div class="box-body">
+                                        <div class="form-horizontal">
+                                            <div class="col-sm-4">
+                                                <div class="form-group col-sm-12">
+                                                    <label class="control-label" >CHEQUE NO.:</label>
+                                                    <input type="number" class="form-control"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group col-sm-12">
+                                                    <label class="control-label" >DATE:</label>
+                                                    <input type="date" class="form-control" />
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group col-sm-12">
+                                                    <label class="control-label" >AMOUNT:</label>
+                                                    <input type="number" class="form-control"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <div class="form-group col-sm-12">
+                                                    <label class="control-label" ></label>                                                        
+                                                    <button class="btn btn-default btn-flat" style="margin-top: 6px">+</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <table class="table table-responsive table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>CHEQUE NO</th>
+                                                        <th>DATE</th>
+                                                        <th>AMOUNT</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>347888345476</td>
+                                                        <td>2012.12.12</td>
+                                                        <td>12000.00</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="box-footer">
+                                        <div class="pull-left">
+                                            <button type="button" class="btn btn-primary btn-flat" data-dismiss="modal">Done</button>
+                                            <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Close</button>
+
                         </div>
                     </div>
                 </div>
             </div>
-
-
-            <!--                    <table class="table table-hover table-fixed table-bordered">
-                                    <thead class="btn-default">
-                                        <tr>
-                                            <th class="col-sm-4">
-                                                EMPLOYEE NO 
-                                                <input id="othertext1" class="form-control"  type="text" ng-model="" >
-                                            </th>
-                                            <th class="col-sm-8">
-                                                EMPLOYEE NAME
-                                                <input id="othertext1" class="form-control"  type="text" ng-model="" >
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr ng-repeat="">
-                                            <td class="col-sm-2">S433</td>
-                                            <td class="col-sm-2">gdgf</td>
-                                            <td class="col-sm-3">122</td>
-                                            <td class="col-sm-1">655</td>
-                                        </tr>    
-                                    </tbody>
-                                </table>-->
         </div>
     </div> 
 </section>
