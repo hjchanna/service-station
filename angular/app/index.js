@@ -20,8 +20,11 @@
                 "userRegistrationModule",
                 "branchRegistrationModule",
                 "userPrivilegesModule",
+                //accounts
+//                "journalModule",
                 //dashboards
-                "copModule"
+                "copModule",
+                
             ]);
     //controller
     var indexController = function ($scope) {

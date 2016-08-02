@@ -1,16 +1,105 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
-</html>
+<section class="content-header">
+    <h1>Journal <small>manage journal</small></h1>
+
+    <ol class="breadcrumb">
+        <li>A</li>
+        <li>B</li>
+        <li>C</li>
+    </ol>
+</section>
+
+
+<section class="content">
+    <div class="row">
+        <div class="col-sm-5">
+            <div class="box box-default">
+                <div class="box-header">
+                    <i class="fa fa-list"></i> <h4 class="box-title">JOURNAL DETAILS</h4>
+                </div>
+                <div class="box-body">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label col-sm-4">JOURNAL NO :</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control input-sm" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-4">DATE :</label>
+                            <div class="col-sm-7">
+                                <input type="date" class="form-control input-sm">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="box box-default">
+                <div class="box-header">
+
+                </div>
+                <div class="box-body">
+                    <table class="table table-hover table-fixed table-bordered">
+                        <thead class="btn-default">
+                            <tr>
+                                <th class="col-sm-1">
+                                    #
+                                </th>
+                                <th class="col-sm-2">   
+                                    DATE       
+                                    <input id="othertext1"  class="form-control"  type="date">
+                                </th>
+                                <th class="col-sm-3">  
+                                    DESCRIPTION
+                                    <input id="othertext1" class="form-control" type="text">
+                                </th>
+                                <th class="col-sm-2">  
+                                    DEBIT
+                                    <input list="debit-account" id="othertext1" class="form-control"  type="text">
+                                    <datalist id="debit-account">
+                                        <option value="phone">
+                                    </datalist>
+                                </th>
+                                <th class="col-sm-2">  
+                                    CREDIT
+                                    <input list="credit-account" id="othertext1" class="form-control"  type="text">
+                                    <datalist id="credit-account">
+                                        <option value="pocket-money">
+                                    </datalist>
+                                </th>
+                                <th class="col-sm-2">  
+                                    AMOUNT
+                                    <input id="othertext1" class="form-control"  type="text">
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-sm-1"></td>
+                                <td class="col-sm-2"></td>
+                                <td class="col-sm-3"></td>
+                                <td class="col-sm-2"></td>
+                                <td class="col-sm-2"></td>
+                                <td class="col-sm-2"></td>
+                            </tr>    
+                        </tbody>
+                    </table>
+                </div>
+                <div class="box-footer">
+                    <div class="col-sm-7">
+                        <button class="btn btn-flat btn-primary" ng-click="doNew();"><i class="fa fa-plus"></i> NEW</button>
+                        <button class="btn btn-flat btn-default" ng-click="doEdit();"><i class="fa fa-edit"></i> EDIT</button>
+                        <button class="btn btn-flat btn-default" ng-click="doDelete();"><i class="fa fa-trash"></i> DELETE</button>
+
+                        <button class="btn btn-flat btn-primary" ng-click="doSave();"><i class="fa fa-save"></i> SAVE</button>
+                        <button class="btn btn-flat btn-default" ng-click="doDiscard();"><i class="fa fa-close"></i> DISCARD</button>
+                        <button class="btn btn-flat btn-default" ng-click="doClear();"><i class="fa fa-retweet"></i> CLEAR</button>
+
+                        <button class="btn btn-flat btn-default" ng-click="doPrint();"><i class="fa fa-print"></i> PRINT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
