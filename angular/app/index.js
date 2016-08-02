@@ -20,6 +20,8 @@
                 "userRegistrationModule",
                 "branchRegistrationModule",
                 "userPrivilegesModule",
+                //accounts
+//                "journalModule",
                 //dashboards
                 "copModule",
                 //account
