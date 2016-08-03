@@ -21,11 +21,10 @@
                 "branchRegistrationModule",
                 "userPrivilegesModule",
                 //accounts
+                "voucherModule",
 //                "journalModule",
                 //dashboards
-                "copModule",
-                //account
-//                "voucherModule",
+                "copModule"
                 
             ]);
     //controller
