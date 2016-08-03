@@ -23,11 +23,20 @@
 
         $scope.doEdit = function (voucher) {
             $scope.setMode('EDIT');
-            $scope.voucher = voucher;
+            if (voucher) {
+                $scope.voucher = voucher;
+                $scope.setMode('IDEAL');
+            }
         };
 
         $scope.doDelete = function () {
-
+            if ($scope.voucher.indexNo) {
+                $scope.vouchers.splice($scope.voucher, 1);
+                Notification.error('Delete Success');
+                $scope.voucher={};
+            }else{
+               Notification.primary('If you want to delete a voucher, selece it. ');
+            }
         };
 
         $scope.doPrint = function () {
@@ -49,6 +58,9 @@
                 Notification.success('Success');
 
                 $scope.voucher = "";
+
+            } else {
+                Notification.error('Must be filled all components to add voucher');
             }
         };
 
@@ -59,7 +71,7 @@
         };
 
         $scope.doClear = function () {
-            $scope.job = null;
+            $scope.voucher = {};
         };
 
         //other functions
@@ -73,7 +85,7 @@
             var curr_month = d.getMonth();
             curr_month++;
             var curr_year = d.getFullYear();
-            return (curr_year + "." + curr_month + "." + curr_date);
+            return (curr_date + "/" + curr_month + "/" + curr_year);
         };
 
         //http
@@ -86,14 +98,14 @@
                 $scope.vouchers = [
                     {
                         "indexNo": "001",
-                        "date": "12/12/2016",
+                        "date": new Date(),
                         "description": "bank deposit",
                         "amount": 38000.00,
                         "account": "Bank Account HNB"
                     },
                     {
                         "indexNo": "002",
-                        "date": "12/05/2016",
+                        "date": new Date(),
                         "description": "sale items",
                         "amount": 1000.00,
                         "account": "Other Supplier"

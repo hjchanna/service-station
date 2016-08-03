@@ -23,13 +23,13 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-6" for="branchName">VOUCHER NO.:</label>
                                 <div class="col-sm-6">
-                                    <input type="text" class="form-control" id="branchName" ng-disabled="mode !== 'IDEAL'" ng-model="voucher.indexNo" uib-typeahead="branch.branchName for branch in getBranches($viewValue) | filter:$viewValue | limitTo:4" typeahead-on-select="setBranch($item)">
+                                    <input type="text" class="form-control" id="branchName" ng-disabled="true" ng-model="voucher.indexNo" uib-typeahead="branch.branchName for branch in getBranches($viewValue) | filter:$viewValue | limitTo:4" typeahead-on-select="setBranch($item)">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-6" for="branchName">VOUCHER DATE:</label>
                                 <div class="col-sm-6">
-                                    <input type="date" class="form-control" id="branchName" ng-disabled="mode !== 'IDEAL'"  ng-model="voucher.voucherDate" ng-model="branch.branchName" uib-typeahead="branch.branchName for branch in getBranches($viewValue) | filter:$viewValue | limitTo:4" typeahead-on-select="setBranch($item)">
+                                    <input type="date" class="form-control" id="branchName" ng-disabled="true"  ng-model="voucher.voucherDate" ng-model="branch.branchName" uib-typeahead="branch.branchName for branch in getBranches($viewValue) | filter:$viewValue | limitTo:4" typeahead-on-select="setBranch($item)">
                                 </div>
                             </div>
                         </div>
@@ -77,7 +77,7 @@
                                 <tbody>
                                     <tr ng-repeat="voucher in getVouchers()" ng-click="doEdit(voucher);">
                                         <td class="col-sm-1">{{voucher.indexNo}}</td>
-                                        <td class="col-sm-2">{{voucher.date}}</td>
+                                        <td class="col-sm-2">{{voucher.date| date : 'dd/MM/yyyy'}}</td>
                                         <td class="col-sm-3">{{voucher.description}}</td>
                                         <td class="col-sm-2">{{voucher.amount}}</td>
                                         <td class="col-sm-3">{{voucher.account}}</td>
