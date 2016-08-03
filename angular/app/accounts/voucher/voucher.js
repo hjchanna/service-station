@@ -9,6 +9,7 @@
         //variables
         $scope.mode = "IDEAL";//IDEAL, NEW, EDIT
         $scope.voucher = {};
+        $scope.account = {};
 
         //actions
         $scope.doNew = function () {
@@ -55,9 +56,9 @@
                     $scope.voucher.account) {
                 $scope.voucher.date = $scope.formatDate($scope.voucher.date);
                 $scope.vouchers.push($scope.voucher);
-                Notification.success('Success');
 
                 $scope.voucher = "";
+                
 
             } else {
                 Notification.error('Must be filled all components to add voucher');
@@ -72,6 +73,9 @@
 
         $scope.doClear = function () {
             $scope.voucher = {};
+        };
+        $scope.doSelectAccount= function (account) {
+            $scope.voucher.account = account.accName;
         };
 
         //other functions
@@ -114,6 +118,57 @@
             }
 
             return $scope.vouchers;
+        };
+        $scope.getAccounts = function (accName) {
+            if (!$scope.accounts) {
+                $scope.accounts= [
+                    {
+                        "indexNo": "1",
+                        "accCode": "010101",
+                        "accName": "Bank Account HNB",
+                        "mainCategory": "Assets",
+                        "subCategory": "Current Assets"
+                    },
+                    {
+                        "indexNo": "2",
+                        "accCode": "123123",
+                        "accName": "Bank Account Sampath",
+                        "mainCategory": "Assets",
+                        "subCategory": "Current Assets"
+                    },
+                    {
+                        "indexNo": "3",
+                        "accCode": "222222",
+                        "accName": "Cash in hand",
+                        "mainCategory": "Assets",
+                        "subCategory": "Current Assets"
+                    },
+                    {
+                        "indexNo": "4",
+                        "accCode": "333333",
+                        "accName": "Furniture",
+                        "mainCategory": "Assets",
+                        "subCategory": "Fixed Assets"
+                    },
+                    {
+                        "indexNo": "5",
+                        "accCode": "505050",
+                        "accName": "Lorry RE-2333",
+                        "mainCategory": "Assets",
+                        "subCategory": "Fixed Assets"
+                    },
+                    {
+                        "indexNo": "6",
+                        "accCode": "505051",
+                        "accName": "Lorry RE-3223",
+                        "mainCategory": "Assets",
+                        "subCategory": "Fixed Assets"
+                    }
+                    
+                ];
+            }
+
+            return $scope.accounts;
         };
 
     };

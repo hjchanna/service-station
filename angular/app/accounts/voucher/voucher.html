@@ -11,7 +11,7 @@
 
 <section class="content">
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-5">
 
             <div class="box box-default">
                 <div class="box-header">
@@ -19,16 +19,16 @@
                 </div>
                 <div class="box-body">
                     <div class="form-horizontal">
-                        <div class="col-sm-5">
+                        <div class="col-sm-12">
                             <div class="form-group">
-                                <label class="control-label col-sm-6" for="branchName">VOUCHER NO.:</label>
-                                <div class="col-sm-6">
+                                <label class="control-label col-sm-5" for="branchName">VOUCHER NO.:</label>
+                                <div class="col-sm-7">
                                     <input type="text" class="form-control" id="branchName" ng-disabled="true" ng-model="voucher.indexNo" uib-typeahead="branch.branchName for branch in getBranches($viewValue) | filter:$viewValue | limitTo:4" typeahead-on-select="setBranch($item)">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-sm-6" for="branchName">VOUCHER DATE:</label>
-                                <div class="col-sm-6">
+                                <label class="control-label col-sm-5" for="branchName">VOUCHER DATE:</label>
+                                <div class="col-sm-7">
                                     <input type="date" class="form-control" id="branchName" ng-disabled="true"  ng-model="voucher.voucherDate" ng-model="branch.branchName" uib-typeahead="branch.branchName for branch in getBranches($viewValue) | filter:$viewValue | limitTo:4" typeahead-on-select="setBranch($item)">
                                 </div>
                             </div>
@@ -60,22 +60,27 @@
                                             <input type="number" class="form-control" ng-model="voucher.amount"/>
                                         </th>
                                         <th class="col-sm-3">ACCOUNT
-                                            <select class="form-control" ng-model="voucher.account">
-                                                <option>Bank Account Sampath </option>
-                                                <option>Bank Account HNB</option>
-                                                <option>welfare 0202</option>
-                                                <option>welfare 2222</option>
-                                                <option>Other Customer</option>
-                                                <option>Other Supplier</option>
-                                            </select>
-                                        </th>
-                                        <th class="col-sm-1">
-                                            <button class="btn btn-primary btn-flat btn-sm" style="margin-top: 20px" ng-click="doAdd();">ADD</button>
-                                        </th>
-                                    </tr>
+                                <div class="input-group">
+                                    <!--                                    <select class="form-control" ng-model="voucher.account">
+                                                                            <option>Bank Account HNB</option>
+                                                                            <option>Bank Account Sampath</option>
+                                                                            <option>Cash in hand</option>
+                                                                            <option>Furniture</option>
+                                                                            <option>Lorry RE-2333</option>
+                                                                            <option>Lorry RE-3223</option>
+                                                                        </select>-->
+                                    <input type="text" class="form-control" ng-model="voucher.account" uib-typeahead="account.accName for account in getAccounts($viewValue) | filter:$viewValue | limitTo:2"  />
+                                    <span class="input-group-addon" data-toggle="modal" data-target="#accountSearchModal"><i class="fa fa-search"></i></span>
+                                </div>
+                                <!--                                -->
+                                </th>
+                                <th class="col-sm-1">
+                                    <button class="btn btn-primary btn-flat btn-sm" style="margin-top: 20px" ng-click="doAdd();">ADD</button>
+                                </th>
+                                </tr>
                                 </thead>
                                 <tbody>
-                                    <tr ng-repeat="voucher in getVouchers()" ng-click="doEdit(voucher);">
+                                    <tr ng-repeat="voucher in getVouchers(null)" ng-click="doEdit(voucher);">
                                         <td class="col-sm-1">{{voucher.indexNo}}</td>
                                         <td class="col-sm-2">{{voucher.date| date : 'dd/MM/yyyy'}}</td>
                                         <td class="col-sm-3">{{voucher.description}}</td>
@@ -85,7 +90,7 @@
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         </td>
                                     </tr>
-                                    
+
                                 </tbody>
                             </table>
 
@@ -102,6 +107,69 @@
                     <button class="btn btn-flat btn-default" ng-hide="mode === 'IDEAL'" ng-click="doClear();"><i class="fa fa-retweet"></i> CLEAR</button>
 
                     <button class="btn btn-flat btn-default" ng-show="mode === 'IDEAL'" ng-click="doPrint();"><i class="fa fa-print"></i> PRINT</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="accountSearchModal" role="dialog">
+        <div class="modal-dialog" style="width: 70%;">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <button type="button" class="close" data-dismiss="modal" >&times;</button>
+                    <h4 class="modal-title"><i class="fa fa-search"></i> ADVANCE ACCOUNT SEARCH</h4>
+                </div>
+
+                <div class="modal-body no-padding">
+                    <table class="table table-hover table-fixed">
+                        <thead class="btn-default">
+                            <tr>
+                                <th class="col-sm-3">
+                                    ACCOUNT CODE:
+                                    <input id="othertext1" placeholder="" class="form-control" ng-model="account.accCode" type="text">
+                                </th>
+
+                                <th class="col-sm-3">
+                                    NAME:
+                                    <input id="othertext1" placeholder="" class="form-control" ng-model="account.accName" type="text">
+                                </th>
+
+                                <th class="col-sm-3">
+                                    MAIN CATEGORY:
+                                    <select class="form-control" ng-model="account.mainCategory">
+                                        <option>Assets</option>
+                                        <option>Liability</option>
+                                        <option>Expense</option>
+                                        <option>Income</option>
+                                    </select>
+                                </th>
+                                <th class="col-sm-3">
+                                    SUB CATEGORY:
+                                    <select class="form-control" ng-model="account.subCategory">
+                                        <option>Current Assets</option>
+                                        <option>Fixed Assets</option>
+
+                                        <option ng-show="false">General Expense</option>
+                                        <option ng-show="false">Production Expense</option>
+                                        <option ng-show="false">Loan Term Liability</option>
+                                        <option ng-show="false">Short Term Liability</option>
+                                    </select>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="account in getAccounts()| filter:account | limitTo:20 " ng-click="doSelectAccount(account)" data-dismiss="modal">
+                                <td class="col-sm-3">{{account.accCode}}</td>
+                                <td class="col-sm-6">{{account.accName}}</td>
+                                <td class="col-sm-3">&nbsp;</td>
+                            </tr>    
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
