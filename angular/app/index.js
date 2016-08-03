@@ -21,7 +21,7 @@
                 "branchRegistrationModule",
                 "userPrivilegesModule",
                 //accounts
-//                "journalModule",
+                "journalModule",
                 //dashboards
                 "copModule",
                 //account
