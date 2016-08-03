@@ -6,6 +6,7 @@
         $scope.mode = "IDEAL";//IDEAL, NEW, EDIT
         $scope.service = "";
 
+        $scope.jobs = null;
 
         //actions
         $scope.doNew = function () {
@@ -79,7 +80,7 @@
                 $scope.tempProduct = {};
             }
         };
-        
+
         $scope.checkEnter = function ($event) {
             var keyCode = $event.which || $event.keyCode;
             if (keyCode == 13) {
@@ -90,20 +91,23 @@
 
         //$http
         $scope.getJobs = function (jobNo) {
-            var jobs = [
-                {
-                    "indexNo": "1",
-                    "jobNo": "111",
-                    "jobDate": "2015-06-16",
-                    "customer": {
-                        "indexNo": "1"
-                    },
-                    "vehicle": {
-                        "indexNo": "1"
+            if (!$scope.jobs) {
+                $scope.jobs  = [
+                    {
+                        "indexNo": "1",
+                        "jobNo": "111",
+                        "jobDate": "2015-06-16",
+                        "customer": {
+                            "indexNo": "1"
+                        },
+                        "vehicle": {
+                            "indexNo": "1"
+                        }
                     }
-                }
-            ];
-            return jobs;
+                ];
+            }
+            
+            return $scope.jobs;
         };
 
         $scope.getInvoice = function (invoiceNo) {

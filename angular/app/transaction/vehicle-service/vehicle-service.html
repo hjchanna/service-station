@@ -21,7 +21,10 @@
                         <div class="form-group">
                             <label class="control-label col-sm-4">JOB NO :</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control input-sm" ng-model="service.jobNo" uib-typeahead="service.jobNo for service in getJobs($viewValue) | filter:$viewValue | limitTo:8"  typeahead-on-select="setJob($item)"  ng-disabled="mode !== 'IDEAL'">
+                                <input list="jobNo" type="text" class="form-control input-sm" ng-model="service.jobNo" uib-typeahead="service.jobNo for service in getJobs($viewValue) | filter:$viewValue | limitTo:8"  typeahead-on-select="setJob($item)"  ng-disabled="mode !== 'IDEAL'">
+                                <datalist id="jobNo" ng-repeat="job in getJobs('')">
+                                    <option value="{{job.jobNo}}">
+                                </datalist>
                             </div>
                         </div>
                         <div class="form-group">
@@ -101,7 +104,7 @@
         <div class="col-sm-8">
             <div class="box box-default">
                 <div class="box-body">
-                    <table class="table table-hover table-fixed">
+                    <table class="table table-hover table-bordered table-fixed">
                         <thead class="btn-default">
                             <tr>
                                 <th class="col-sm-2">
@@ -135,14 +138,14 @@
                             </tr>
                         </thead>
                         <tbody  style="height: 150px">
-                           <tr ng-repeat="product in service.products">
-                                <td class="col-sm-2">{{product.productNo}}</td>
-                                <td class="col-sm-2">{{product.modelNo}}</td>
-                                <td class="col-sm-3">{{product.description}}</td>
-                                <td class="col-sm-1">{{product.unit}}</td>
-                                <td class="col-sm-2">{{product.unitPrice}}</td>
-                                <td class="col-sm-1">{{product.qty}}</td>
-                                <td class="col-sm-1">{{product.value}}</td>
+                            <tr ng-repeat="product in service.products">
+                                <td class="col-sm-2" >{{product.productNo}}</td>
+                                <td class="col-sm-2" >{{product.modelNo}}</td>
+                                <td class="col-sm-3" >{{product.description}}</td>
+                                <td class="col-sm-1" >{{product.unit}}</td>
+                                <td class="col-sm-2" >{{product.unitPrice}}</td>
+                                <td class="col-sm-1" >{{product.qty}}</td>
+                                <td class="col-sm-1" >{{product.value}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -239,8 +242,8 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="col-sm-6"><input type="button" class="btn btn-primary col-sm-8" value="RS: 2000"></td>
-                                <td class="col-sm-6"><input type="button" class="btn btn-primary col-sm-8" value="ADD" data-toggle="modal" data-target="#employeeDetaillModel"></td>
+                                <td class="col-sm-6"><input type="button" class="btn btn-flat btn-default col-sm-8" value="RS: 2000"></td>
+                                <td class="col-sm-6"><input type="button" class="btn btn-flat btn-primary col-sm-8" value="ADD" data-toggle="modal" data-target="#employeeDetaillModel"></td>
                             </tr>    
                         </tbody>
                     </table>
