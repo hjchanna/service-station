@@ -21,13 +21,9 @@
                 "branchRegistrationModule",
                 "userPrivilegesModule",
                 //accounts
-<<<<<<< HEAD
                 "voucherModule",
-//                "journalModule",
-=======
                 "journalModule",
->>>>>>> origin/master
-                //dashboards
+                //dashboard
                 "copModule"
                 
             ]);
