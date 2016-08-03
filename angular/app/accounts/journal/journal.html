@@ -21,13 +21,13 @@
                         <div class="form-group">
                             <label class="control-label col-sm-4">JOURNAL NO :</label>
                             <div class="col-sm-7">
-                                <input type="text" class="form-control input-sm" >
+                                <input type="text" class="form-control input-sm" ng-disabled="mode === 'IDEAL'" ng-model="journal.journalNo">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-4">DATE :</label>
                             <div class="col-sm-7">
-                                <input type="date" class="form-control input-sm">
+                                <input type="date" class="form-control input-sm" ng-disabled="mode === 'IDEAL'" ng-model="journal.journalDate">
                             </div>
                         </div>
                     </div>
@@ -35,7 +35,7 @@
             </div>
         </div>
         <div class="col-sm-12">
-            <div class="box box-default">
+            <div class="box box-default" style="height: 373px;">
                 <div class="box-header">
 
                 </div>
@@ -48,55 +48,55 @@
                                 </th>
                                 <th class="col-sm-2">   
                                     DATE       
-                                    <input id="othertext1"  class="form-control"  type="date">
+                                    <input id="othertext1"  class="form-control"  type="date" ng-disabled="mode !== 'IDEAL'" ng-model="tempJournal.date">
                                 </th>
                                 <th class="col-sm-3">  
                                     DESCRIPTION
-                                    <input id="othertext1" class="form-control" type="text">
+                                    <input id="othertext1" class="form-control" type="text" ng-disabled="mode !== 'IDEAL'" ng-model="tempJournal.description">
                                 </th>
                                 <th class="col-sm-2">  
                                     DEBIT
-                                    <input list="debit-account" id="othertext1" class="form-control"  type="text">
-                                    <datalist id="debit-account">
+                                    <input id="othertext1" class="form-control"  type="text" ng-disabled="mode !== 'IDEAL'" ng-model="tempJournal.debit" uib-typeahead="debit for debit in getDebit($viewValue) | filter:$viewValue | limitTo:8">
+<!--                                    <datalist id="debit-account">
                                         <option value="phone">
-                                    </datalist>
+                                    </datalist>-->
                                 </th>
                                 <th class="col-sm-2">  
                                     CREDIT
-                                    <input list="credit-account" id="othertext1" class="form-control"  type="text">
-                                    <datalist id="credit-account">
+                                    <input id="othertext1" class="form-control"  type="text" ng-disabled="mode !== 'IDEAL'" ng-model="tempJournal.credit" uib-typeahead="credit for credit in getCredit($viewValue) | filter:$viewValue | limitTo:8">
+<!--                                    <datalist id="credit-account">
                                         <option value="pocket-money">
-                                    </datalist>
+                                    </datalist>-->
                                 </th>
                                 <th class="col-sm-2">  
                                     AMOUNT
-                                    <input id="othertext1" class="form-control"  type="text">
+                                    <input id="othertext1" class="form-control"  type="number" ng-disabled="mode !== 'IDEAL'" ng-model="tempJournal.amount" ng-keypress="checkEnter($event)">
                                 </th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td class="col-sm-1"></td>
-                                <td class="col-sm-2"></td>
-                                <td class="col-sm-3"></td>
-                                <td class="col-sm-2"></td>
-                                <td class="col-sm-2"></td>
-                                <td class="col-sm-2"></td>
+                        <tbody style="height: 228px;">
+                            <tr ng-repeat="journal in journal.journals" ng-click="doSelectJournal(journal)">
+                                <td class="col-sm-1">1</td>
+                                <td class="col-sm-2">{{journal.date}}</td>
+                                <td class="col-sm-3">{{journal.description}}</td>
+                                <td class="col-sm-2">{{journal.debit}}</td>
+                                <td class="col-sm-2">{{journal.credit}}</td>
+                                <td class="col-sm-2">{{journal.amount}}</td>
                             </tr>    
                         </tbody>
                     </table>
                 </div>
                 <div class="box-footer">
                     <div class="col-sm-7">
-                        <button class="btn btn-flat btn-primary" ng-click="doNew();"><i class="fa fa-plus"></i> NEW</button>
-                        <button class="btn btn-flat btn-default" ng-click="doEdit();"><i class="fa fa-edit"></i> EDIT</button>
-                        <button class="btn btn-flat btn-default" ng-click="doDelete();"><i class="fa fa-trash"></i> DELETE</button>
+                        <button class="btn btn-flat btn-primary" ng-show="mode === 'IDEAL'" ng-click="doNew();"><i class="fa fa-plus"></i> NEW</button>
+                        <button class="btn btn-flat btn-default" ng-show="mode === 'IDEAL'" ng-click="doEdit();"><i class="fa fa-edit"></i> EDIT</button>
+                        <button class="btn btn-flat btn-default" ng-show="mode === 'IDEAL'" ng-click="doDelete();"><i class="fa fa-trash"></i> DELETE</button>
 
-                        <button class="btn btn-flat btn-primary" ng-click="doSave();"><i class="fa fa-save"></i> SAVE</button>
-                        <button class="btn btn-flat btn-default" ng-click="doDiscard();"><i class="fa fa-close"></i> DISCARD</button>
-                        <button class="btn btn-flat btn-default" ng-click="doClear();"><i class="fa fa-retweet"></i> CLEAR</button>
+                        <button class="btn btn-flat btn-primary" ng-show="mode === 'IDEAL'" ng-click="doSave();"><i class="fa fa-save"></i> SAVE</button>
+                        <button class="btn btn-flat btn-default" ng-show="mode === 'IDEAL'" ng-click="doDiscard();"><i class="fa fa-close"></i> DISCARD</button>
+                        <button class="btn btn-flat btn-default" ng-show="mode === 'IDEAL'" ng-click="doClear();"><i class="fa fa-retweet"></i> CLEAR</button>
 
-                        <button class="btn btn-flat btn-default" ng-click="doPrint();"><i class="fa fa-print"></i> PRINT</button>
+                        <button class="btn btn-flat btn-default" ng-show="mode === 'IDEAL'" ng-click="doPrint();"><i class="fa fa-print"></i> PRINT</button>
                     </div>
                 </div>
             </div>
