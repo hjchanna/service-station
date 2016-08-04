@@ -21,11 +21,19 @@
                 "branchRegistrationModule",
                 "userPrivilegesModule",
                 //accounts
+<<<<<<< HEAD
 //                "journalModule",
                 //dashboards
                 "copModule"
                 //account
 //                "voucherModule",
+=======
+                "voucherModule",
+                "journalModule",
+                "accountRegistrationModule",
+                //dashboard
+                "copModule"
+>>>>>>> origin/master
                 
             ]);
     //controller
@@ -140,9 +148,15 @@
                     templateUrl: "app/accounts/journal/journal.html"
                 })
                 
+<<<<<<< HEAD
                 .when("/test", {
                     controller: "testController",
                     templateUrl: "app/test/test.html"
+=======
+                .when("/accountRegistration", {
+                    controller: "accountRegistrationController",
+                    templateUrl: "app/accounts/account-registration/account-registration.html"
+>>>>>>> origin/master
                 })
 
                 .otherwise({redirectTo: "/"});

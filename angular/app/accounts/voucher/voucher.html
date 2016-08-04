@@ -23,13 +23,13 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-6" for="branchName">VOUCHER NO.:</label>
                                 <div class="col-sm-6">
-                                    <input type="text" class="form-control" id="branchName" ng-model="branch.branchName" uib-typeahead="branch.branchName for branch in getBranches($viewValue) | filter:$viewValue | limitTo:4" typeahead-on-select="setBranch($item)">
+                                    <input type="text" class="form-control" id="branchName" ng-disabled="true" ng-model="voucher.indexNo" uib-typeahead="branch.branchName for branch in getBranches($viewValue) | filter:$viewValue | limitTo:4" typeahead-on-select="setBranch($item)">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-6" for="branchName">VOUCHER DATE:</label>
                                 <div class="col-sm-6">
-                                    <input type="date" class="form-control" id="branchName" ng-model="branch.branchName" uib-typeahead="branch.branchName for branch in getBranches($viewValue) | filter:$viewValue | limitTo:4" typeahead-on-select="setBranch($item)">
+                                    <input type="date" class="form-control" id="branchName" ng-disabled="true"  ng-model="voucher.voucherDate" ng-model="branch.branchName" uib-typeahead="branch.branchName for branch in getBranches($viewValue) | filter:$viewValue | limitTo:4" typeahead-on-select="setBranch($item)">
                                 </div>
                             </div>
                         </div>
@@ -51,19 +51,18 @@
                                     <tr>
                                         <th class="col-sm-1">#</th>
                                         <th class="col-sm-2">DATE
-                                            <input type="text" class="form-control"/>
+                                            <input type="date" class="form-control" ng-model="voucher.date"/>
                                         </th>
                                         <th class="col-sm-3">DESCRIPTION
-                                            <input type="text" class="form-control"/>
+                                            <input type="text" class="form-control" ng-model="voucher.description"/>
                                         </th>
                                         <th class="col-sm-2">AMOUNT
-                                            <input type="text" class="form-control"/>
+                                            <input type="number" class="form-control" ng-model="voucher.amount"/>
                                         </th>
                                         <th class="col-sm-3">ACCOUNT
-                                            <select class="form-control">
-                                                <option>Bank Account Sampath 23231242</option>
-                                                <option>Bank Account Sampath 0405595</option>
-                                                <option>Bank Account HNB 442423536</option>
+                                            <select class="form-control" ng-model="voucher.account">
+                                                <option>Bank Account Sampath </option>
+                                                <option>Bank Account HNB</option>
                                                 <option>welfare 0202</option>
                                                 <option>welfare 2222</option>
                                                 <option>Other Customer</option>
@@ -71,30 +70,22 @@
                                             </select>
                                         </th>
                                         <th class="col-sm-1">
-                                            <button class="btn btn-primary btn-flat btn-sm" style="margin-top: 20px">SAVE</button>
+                                            <button class="btn btn-primary btn-flat btn-sm" style="margin-top: 20px" ng-click="doAdd();">ADD</button>
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td class="col-sm-1">1</td>
-                                        <td class="col-sm-2">2012.12.12</td>
-                                        <td class="col-sm-3">sale item</td>
-                                        <td class="col-sm-2">12000.00</td>
-                                        <td class="col-sm-3">withholding expense</td>
+                                    <tr ng-repeat="voucher in getVouchers()" ng-click="doEdit(voucher);">
+                                        <td class="col-sm-1">{{voucher.indexNo}}</td>
+                                        <td class="col-sm-2">{{voucher.date| date : 'dd/MM/yyyy'}}</td>
+                                        <td class="col-sm-3">{{voucher.description}}</td>
+                                        <td class="col-sm-2">{{voucher.amount}}</td>
+                                        <td class="col-sm-3">{{voucher.account}}</td>
                                         <td class="col-sm-1">
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td class="col-sm-1">2</td>
-                                        <td class="col-sm-2">2012.12.12</td>
-                                        <td class="col-sm-3">bank deposit</td>
-                                        <td class="col-sm-2">110000.00</td>
-                                        <td class="col-sm-3"> Bank Account 1234242</td>
-                                        <td class="col-sm-1"></td>
-                                    </tr>
+                                    
                                 </tbody>
                             </table>
 
