@@ -16,7 +16,7 @@
             $scope.journal.journalNo = $scope.getNextNumber();
             $scope.journal.journalDate = new Date();
 
-            $scope.setMode('IDEAL');
+            $scope.setMode('NEW');
         };
         $scope.doEdit = function () {
 //            $scope.setMode('EDIT');

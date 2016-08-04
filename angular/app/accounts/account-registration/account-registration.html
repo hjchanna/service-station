@@ -1,0 +1,113 @@
+<section class="content-header">
+    <h1>ACCOUNT REGISTRATION<small>create account</small></h1>
+
+    <ol class="breadcrumb">
+        <li>A</li>
+        <li>B</li>
+        <li>C</li>
+    </ol>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="box box-default">
+                <div class="box-header">
+                    <i class="fa fa-book"></i> <h4 class="box-title">ACCOUNT DETAILS</h4>   
+                </div>
+                <div class="box-body">
+                    <div class="form-horizontal">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">CODE :</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">NAME :</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">MAIN CATEGORY :</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">SUB CATEGORY 1 :</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">SUB CATEGORY 2 :</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4"> :</label>
+                                <div class="col-sm-6 ">
+                                    <div class="col-sm-7">
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="type">
+                                                Balance Sheet
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="type">
+                                                PNL
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <button class="btn btn-flat btn-primary" ng-show="mode === 'IDEAL'" ng-click="doNew();"><i class="fa fa-plus"></i> NEW</button>
+                    <button class="btn btn-flat btn-default" ng-show="mode === 'IDEAL'" ng-click="doEdit();"><i class="fa fa-edit"></i> EDIT</button>
+                    <button class="btn btn-flat btn-default" ng-show="mode === 'IDEAL'" ng-click="doDelete();"><i class="fa fa-trash"></i> DELETE</button>
+
+                    <button class="btn btn-flat btn-primary" ng-hide="mode === 'IDEAL'" ng-click="doSave();"><i class="fa fa-save"></i> SAVE</button>
+                    <button class="btn btn-flat btn-default" ng-hide="mode === 'IDEAL'" ng-click="doDiscard();"><i class="fa fa-close"></i> DISCARD</button>
+                    <button class="btn btn-flat btn-default" ng-hide="mode === 'IDEAL'" ng-click="doClear();"><i class="fa fa-retweet"></i> CLEAR</button>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="box box-default">
+                <div class="box-header">
+                    <i class="fa fa-book"></i> <h4 class="box-title">CATEGORY REGISTRATION</h4>   
+                </div>
+                <div class="box-body">
+                    <div class="form-horizontal">
+                        <div class="col-sm-12">
+
+                            <div class="col-md-6">  
+                                <label>Account Type</label>
+                                <input type="text" class="form-control">
+
+                                <ul class="arrow">
+                                    <li><a href="#" target="_blank"> Current Asset  </a></li>
+                                    <li><a href="#" target="_blank"> Fixed Asset </a></li>
+                                </ul>               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+</section>

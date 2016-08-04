@@ -23,6 +23,7 @@
                 //accounts
                 "voucherModule",
                 "journalModule",
+                "accountRegistrationModule",
                 //dashboard
                 "copModule"
                 
@@ -118,6 +119,11 @@
                 .when("/journal", {
                     controller: "journalController",
                     templateUrl: "app/accounts/journal/journal.html"
+                })
+                
+                .when("/accountRegistration", {
+                    controller: "accountRegistrationController",
+                    templateUrl: "app/accounts/account-registration/account-registration.html"
                 })
 
                 .otherwise({redirectTo: "/"});
