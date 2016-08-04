@@ -2,12 +2,13 @@
     var journalModule = angular.module("journalModule", ['ui.bootstrap', 'ui-notification']);
 
     var journalController = function ($scope, Notification) {
+         //variables
         $scope.mode = "IDEAL";//IDEAL, NEW, EDIT
         $scope.journal = null;
-        $scope.tempJournal={};
+        $scope.tempJournal = {};
 
 
-//        action
+        //action
         $scope.doNew = function () {
             $scope.doClear();
 
@@ -40,13 +41,14 @@
         };
 
         $scope.doClear = function () {
-            $scope.journal = null;
-            
+            $scope.tempJournal=null;
+
         };
-        
-        $scope.doSelectJournal = function (journal){
-            $scope.tempJournal=journal;
-        } 
+
+        $scope.doSelectJournal = function (journal) {
+//            $scope.tempJournal.date=$scope.journal.journals.date;
+            $scope.tempJournal = journal;
+        }
 
 //        other function
         $scope.setMode = function (mode) {
@@ -64,7 +66,6 @@
                 if (!$scope.journal.journals) {
                     $scope.journal.journals = [];
                 }
-
                 $scope.journal.journals.push($scope.tempJournal);
                 $scope.tempJournal = {};
             }
