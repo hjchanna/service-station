@@ -1,5 +1,5 @@
 (function () {
-    var jobCardModule = angular.module("jobCardModule", ['ui.bootstrap', 'ui-notification']);
+    var jobCardModule = angular.module("jobCardModule", [ 'index','ui.bootstrap', 'ui-notification']);
 
     var jobCardController = function ($scope, Notification) {
         //variables

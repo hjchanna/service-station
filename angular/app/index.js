@@ -23,10 +23,11 @@
                 //accounts
                 "voucherModule",
                 "journalModule",
+                "accountRegistrationModule",
                 //dashboard
                 "copModule"
-                
             ]);
+
     //controller
     var indexController = function ($scope) {
         $scope.sayGoodBye = function () {
@@ -35,6 +36,25 @@
     };
     indexModule.controller("indexController", indexController);
 
+    //directives
+    indexModule.directive('slimscroll', function () {
+        return {
+            restrict: 'A',
+            link: function (scope, elem, attrs) {
+                //attributes {height:'250px'}
+                var attributes = scope.$eval(attrs.slimscroll);
+
+                //read from attributes
+                var scrollHeight = attributes.height;
+
+                //set scroll height
+                $(elem).slimScroll({
+                    height: scrollHeight
+                });
+            }
+        };
+    });
+
     //route config
     indexModule.config(function ($routeProvider) {
         $routeProvider
@@ -42,15 +62,18 @@
                     controller: "",
                     templateUrl: "app/home/home.html"
                 })
+
                 .when("/test", {
                     controller: "testController",
                     templateUrl: "app/test/test.html"
                 })
+
                 .when("/job-card", {
                     controller: "jobCardController",
                     templateUrl: "app/transaction/job-card/job-card.html"
 
                 })
+
                 .when("/invoice", {
                     controller: "invoiceController",
                     templateUrl: "app/transaction/invoice/invoice.html"
@@ -65,6 +88,7 @@
                     controller: "customerPaymentController",
                     templateUrl: "app/transaction/customer-payment/customer-payment.html"
                 })
+
                 .when("/vehicleService", {
                     controller: "vehicleServiceController",
                     templateUrl: "app/transaction/vehicle-service/vehicle-service.html"
@@ -109,15 +133,25 @@
                     controller: "userPrivilegesController",
                     templateUrl: "app/master-data/user-privileges/user-privileges.html"
                 })
-                
+
                 .when("/voucher", {
                     controller: "voucherController",
                     templateUrl: "app/accounts/voucher/voucher.html"
                 })
-                
+
                 .when("/journal", {
                     controller: "journalController",
                     templateUrl: "app/accounts/journal/journal.html"
+                })
+
+                .when("/test", {
+                    controller: "testController",
+                    templateUrl: "app/test/test.html"
+                })
+                
+                .when("/accountRegistration", {
+                    controller: "accountRegistrationController",
+                    templateUrl: "app/accounts/account-registration/account-registration.html"
                 })
 
                 .otherwise({redirectTo: "/"});
