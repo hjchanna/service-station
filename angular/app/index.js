@@ -21,21 +21,13 @@
                 "branchRegistrationModule",
                 "userPrivilegesModule",
                 //accounts
-<<<<<<< HEAD
-//                "journalModule",
-                //dashboards
-                "copModule"
-                //account
-//                "voucherModule",
-=======
                 "voucherModule",
                 "journalModule",
                 "accountRegistrationModule",
                 //dashboard
                 "copModule"
->>>>>>> origin/master
-                
             ]);
+
     //controller
     var indexController = function ($scope) {
         $scope.sayGoodBye = function () {
@@ -45,120 +37,120 @@
     indexModule.controller("indexController", indexController);
 
     //directives
-    indexModule.directive('slimscroll', function() {
-      return {
-        restrict: 'A',
-        link: function(scope, elem, attrs) {
-            //attributes {height:'250px'}
-            var attributes = scope.$eval(attrs.slimscroll);
-            
-            //read from attributes
-            var scrollHeight = attributes.height;
-            
-            //set scroll height
-            $(elem).slimScroll({
-                height:  scrollHeight
-            });
-        }
-      };
+    indexModule.directive('slimscroll', function () {
+        return {
+            restrict: 'A',
+            link: function (scope, elem, attrs) {
+                //attributes {height:'250px'}
+                var attributes = scope.$eval(attrs.slimscroll);
+
+                //read from attributes
+                var scrollHeight = attributes.height;
+
+                //set scroll height
+                $(elem).slimScroll({
+                    height: scrollHeight
+                });
+            }
+        };
     });
 
     //route config
     indexModule.config(function ($routeProvider) {
         $routeProvider
                 .when("/", {
-                    controller: "",
-                    templateUrl: "app/home/home.html"
+                controller: "",
+                        templateUrl: "app/home/home.html"
                 })
                 .when("/test", {
-                    controller: "testController",
-                    templateUrl: "app/test/test.html"
+                controller: "testController",
+                        templateUrl: "app/test/test.html"
                 })
                 .when("/job-card", {
-                    controller: "jobCardController",
-                    templateUrl: "app/transaction/job-card/job-card.html"
+                controller: "jobCardController",
+                        templateUrl: "app/transaction/job-card/job-card.html"
 
                 })
                 .when("/invoice", {
-                    controller: "invoiceController",
-                    templateUrl: "app/transaction/invoice/invoice.html"
+                controller: "invoiceController",
+                        templateUrl: "app/transaction/invoice/invoice.html"
                 })
 
                 .when("/grn", {
-                    controller: "grnController",
-                    templateUrl: "app/transaction/grn/grn.html"
+                controller: "grnController",
+                        templateUrl: "app/transaction/grn/grn.html"
                 })
 
                 .when("/customerPayment", {
-                    controller: "customerPaymentController",
-                    templateUrl: "app/transaction/customer-payment/customer-payment.html"
+                controller: "customerPaymentController",
+                        templateUrl: "app/transaction/customer-payment/customer-payment.html"
                 })
                 .when("/vehicleService", {
-                    controller: "vehicleServiceController",
-                    templateUrl: "app/transaction/vehicle-service/vehicle-service.html"
+                controller: "vehicleServiceController",
+                        templateUrl: "app/transaction/vehicle-service/vehicle-service.html"
                 })
 
                 .when("/stockTransfer", {
-                    controller: "stockTransferController",
-                    templateUrl: "app/transaction/stock-transfer/stock-transfer.html"
+                controller: "stockTransferController",
+                        templateUrl: "app/transaction/stock-transfer/stock-transfer.html"
                 })
 
                 .when("/stockAdjustment", {
-                    controller: "stockAdjustmentController",
-                    templateUrl: "app/transaction/stock-adjustmant/stock-adjustmant.html"
+                controller: "stockAdjustmentController",
+                        templateUrl: "app/transaction/stock-adjustmant/stock-adjustmant.html"
                 })
 
                 .when("/product", {
-                    controller: "productController",
-                    templateUrl: "app/master-data/product/product.html"
+                controller: "productController",
+                        templateUrl: "app/master-data/product/product.html"
                 })
 
                 .when("/customer", {
-                    controller: "customerController",
-                    templateUrl: "app/master-data/customer/customer.html"
+                controller: "customerController",
+                        templateUrl: "app/master-data/customer/customer.html"
                 })
 
                 .when("/dashboard", {
-                    controller: "copController",
-                    templateUrl: "app/dashboard/cop/cop.html"
+                controller: "copController",
+                        templateUrl: "app/dashboard/cop/cop.html"
                 })
 
                 .when("/userRegistration", {
-                    controller: "userRegistrationController",
-                    templateUrl: "app/master-data/user-registration/user-registration.html"
+                controller: "userRegistrationController",
+                        templateUrl: "app/master-data/user-registration/user-registration.html"
                 })
 
                 .when("/branchRegistration", {
-                    controller: "branchRegistrationController",
-                    templateUrl: "app/master-data/branch-registration/branch-registration.html"
+                controller: "branchRegistrationController",
+                        templateUrl: "app/master-data/branch-registration/branch-registration.html"
                 })
 
                 .when("/userPrivileges", {
-                    controller: "userPrivilegesController",
-                    templateUrl: "app/master-data/user-privileges/user-privileges.html"
-                })
-                
-                .when("/voucher", {
-                    controller: "voucherController",
-                    templateUrl: "app/accounts/voucher/voucher.html"
-                })
-                
-                .when("/journal", {
-                    controller: "journalController",
-                    templateUrl: "app/accounts/journal/journal.html"
-                })
-                
-<<<<<<< HEAD
-                .when("/test", {
-                    controller: "testController",
-                    templateUrl: "app/test/test.html"
-=======
-                .when("/accountRegistration", {
-                    controller: "accountRegistrationController",
-                    templateUrl: "app/accounts/account-registration/account-registration.html"
->>>>>>> origin/master
+                controller: "userPrivilegesController",
+                        templateUrl: "app/master-data/user-privileges/user-privileges.html"
                 })
 
-                .otherwise({redirectTo: "/"});
-    });
+                .when("/voucher", {
+                controller: "voucherController",
+                        templateUrl: "app/accounts/voucher/voucher.html"
+                })
+
+                .when("/journal", {
+                controller: "journalController",
+                        templateUrl: "app/accounts/journal/journal.html"
+                })
+
+                .when("/test", {
+                controller: "testController",
+                        templateUrl: "app/test/test.html"
+                })
+                .when("/accountRegistration", {
+                controller: "accountRegistrationController",
+                        templateUrl: "app/accounts/account-registration/account-registration.html"
+                })
+
+                .otherwise(
+                    {redirectTo: "/"}
+                );
+            });
 }());
